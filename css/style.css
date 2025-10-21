@@ -1,0 +1,40 @@
+/* Grunnleggende stiler for hele siden */
+body {
+    font-family: sans-serif; /* En enkel, lesbar font */
+    background-color: #f0f0f0; /* En lys grå bakgrunnsfarge */
+    color: #333; /* Mørk grå tekstfarge */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Sørger for at body fyller hele skjermhøyden */
+}
+
+/* Stil for startskjermen */
+#start-screen {
+    text-align: center; /* Senterer teksten inni seksjonen */
+}
+
+/* Stil for den store startknappen */
+#start-button {
+    background-color: #ff4136; /* En sterk rødfarge */
+    color: white; /* Hvit tekst */
+    border: none; /* Fjerner standard ramme */
+    padding: 20px 40px; /* Mer luft inni knappen */
+    font-size: 24px; /* Stor, tydelig skrift */
+    font-weight: bold;
+    cursor: pointer; /* Endrer musepekeren for å vise at den er klikkbar */
+    border-radius: 10px; /* Avrundede hjørner */
+    transition: background-color 0.3s; /* Myk overgang for hover-effekt */
+}
+
+/* Endrer farge når musen er over knappen for visuell tilbakemelding */
+#start-button:hover {
+    background-color: #d13028; /* En litt mørkere rødfarge */
+}
+
+/* Denne klassen bruker vi for å skjule og vise seksjoner med JavaScript senere */
+.hidden {
+    display: none;
+}
