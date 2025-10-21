@@ -41,25 +41,23 @@ main {
 #start-lever {
     position: absolute;
     /* Juster disse verdiene for å plassere spaken */
-    bottom: 20%;
-    left: 70%;
+    bottom: 44%;
+    left: 42%;
     
-    width: 10%; 
-    min-width: 80px;
-    max-width: 150px;
+    width: 50%; 
+    min-width: 240px;
+    max-width: 400px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 2;
     transition: transform 0.2s;
 }
-#start-lever:hover {
-    transform: scale(1.1);
-}
+
 
 #start-developers {
     position: absolute;
     /* Juster disse for å plassere dem på togskinnene */
-    bottom: 25%;
-    left: 30%;
+    bottom: 14%;
+    left: 37%;
     
     width: 30%; /* Juster bredden på 'utviklere.png' */
     z-index: 2;
@@ -68,11 +66,12 @@ main {
 #start-train {
     position: absolute;
     /* Juster 'bottom' for å treffe skinnene */
-    bottom: 22%;
-    left: -30%; /* Start utenfor skjermen */
+    bottom: 15%;
+    left: -80%; /* Start utenfor skjermen */
     
-    width: 25%;
-    min-width: 200px;
+    width: 30%;
+    min-width: 1500px;
+    max-width: 4000px;
     z-index: 5;
 }
 
@@ -243,7 +242,7 @@ main {
 
 /* Animasjon for intro-toget */
 @keyframes anim-intro-train {
-    from { left: -30%; }
+    from { left: -80%; }
     to { left: 110%; } /* Kjører tvers over skjermen */
 }
 .intro-train-moving {
