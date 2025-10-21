@@ -8,8 +8,10 @@
 </head>
 <body>
 
+    <div id="page-background"></div>
+
     <nav>
-        </nav>
+    </nav>
 
     <main>
         <section id="start-screen">
@@ -18,22 +20,36 @@
         </section>
 
         <section id="game-screen" class="hidden">
-             <p id="dilemma-text">Her kommer dilemma-teksten...</p>
-             <div id="timer">30</div>
+             
+             <div id="dilemma-box">
+                <p id="dilemma-text">Her kommer dilemma-teksten...</p>
+             </div>
+             <div id="timer-box">
+                <div id="timer">30</div>
+             </div>
+             <p id="feedback-text"></p> 
 
-            <div id="trolley-scene">
-                </div>
+            
+            <img id="train" src="assets/image/bilder/tog.png" alt="Tog">
+                
+            <div class="characters" id="track-a-characters">
+            </div>
+            <div class="characters" id="track-b-characters">
+            </div>
 
-            <p id="feedback-text"></p> 
-
-            <button id="lever-button">TREKK I SPAKEN</button>
+            <img 
+                id="lever-button" 
+                src="assets/image/bilder/lever-off.png" 
+                alt="Spak"
+             >
+        
         </section>
 
         <section id="about-us" class="hidden">
-            <p>Vi er gruppe 12!</p>
+             <p>Vi er gruppe 12!</p>
         </section>
 
-        </main>
+    </main>
 
     <script src="js/game.js"></script> 
     <script src="js/main.js"></script>

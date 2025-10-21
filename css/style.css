@@ -1,32 +1,55 @@
-/*Stiler for hele siden */
 body {
-    font-family: sans-serif; /* Denne må byttes med egen font! */
-    background-color: white;
+    font-family: sans-serif; /* Bytte til egen font etterhvert!*/
     color: black;
     margin: 0;
     padding: 0;
+    height: 100vh;
+}
+
+/* Bakgrunns*/
+#page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh;
+    background-image: url('../assets/image/bilder/startside.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    z-index: -1; 
+    transition: background-image 0.5s ease-in-out;
+}
+
+main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; 
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
 }
 
-/* Startskjermen */
 #start-screen {
     text-align: center; 
+    background-color: white;
+    padding: 40px 60px;
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
 }
 
-/* Midlertidlig stil for startknappen */
 #start-button {
-    background-color: #ff4136; /
+    background-color: #ff4136;
     color: white;
     border: none; 
     padding: 20px 40px; 
     font-size: 24px; 
     font-weight: bold;
     cursor: pointer; 
-    border-radius: 10px; /
-    transition: background-color 0.3s; /
+    border-radius: 10px;
+    transition: background-color 0.3s;
 }
 
 #start-button:hover {
@@ -36,4 +59,112 @@ body {
 /* Skjule og vise seksjoner med JavaScript */
 .hidden {
     display: none;
+}
+
+/* Stiler for selve spillet */
+
+#game-screen {
+    position: relative; 
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+
+#dilemma-box {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 80%;
+    max-width: 700px;
+    background-color: rgba(255, 255, 255, 0.85); 
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+#dilemma-text {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+#timer-box {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #ff4136;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
+#feedback-text {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px 25px;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+/* Spillelementer */
+
+
+#train {
+    position: absolute;
+    width: 20%; 
+    min-width: 150px;
+    
+    top: 40%; 
+    left: -25%;
+    z-index: 5;
+}
+
+.characters {
+    position: absolute;
+    height: 10%;
+    z-index: 2;
+}
+
+#track-a-characters {
+    top: 45%; 
+    left: 60%;
+}
+
+#track-b-characters {
+    top: 65%;
+    left: 50%;
+}
+
+.character-sprite {
+    height: 100%; 
+    width: auto;
+    margin: 0 5px;
+}
+
+#lever-button {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    width: 10%; 
+    min-width: 80px;
+    max-width: 150px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 10;
+}
+
+#lever-button:hover {
+    transform: scale(1.1); 
 }

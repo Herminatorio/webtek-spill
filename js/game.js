@@ -1,6 +1,7 @@
 // Struktur for alle spillnivåer
 const gameData = [
     {
+        // Dilemma 1: Trønder v Østlendinger
         levelId: 1,
         dilemmaText: "Et tog er på vei mot en Trønder. Du kan trekke i en spak for å sende det mot fem østlendinger. Hva gjør du?",
         trackA: { characters: ['Trønder'] },
@@ -9,13 +10,15 @@ const gameData = [
             feedbackB: "Bra! Østlendingene hadde sikkert fortjent det.",
             feedbackA: "Jævla psykopat" 
         }
+
+        //Her kan vi legge til resten av av dilemmaene
     }
-    //... Flere nivåer kan legges til her som nye objekter
+    
 ];
 
-// Hovedobjekt for spillet
+// Generell kode for spillet
 const game = {
-    // State-objekt lagrer spillets tilstand (variabler)
+    // State  lagrer spillets tilstand underveis
     state: {
         currentLevel: 0,
         timeLeft: 30,
@@ -23,109 +26,119 @@ const game = {
         leverPulled: false 
     },
 
-    // Funksjon for loadLevel (laster inn et nytt nivå)
+    // Funksjon for loadLevel som laster inn et nytt nivå
     loadLevel: function(levelIndex) {
-        // Hent data for det spesifikke nivået
         const level = gameData[levelIndex];
 
-        // Hent HTML-elementene vi skal endre
+        // Henter HTML-elementene
         const dilemmaTextElement = document.getElementById('dilemma-text');
         const timerElement = document.getElementById('timer');
-        const leverButton = document.getElementById('lever-button');
+        const leverButton = document.getElementById('lever-button'); 
         const feedbackElement = document.getElementById('feedback-text');
+        const trackACharsEl = document.getElementById('track-a-characters');
+        const trackBCharsEl = document.getElementById('track-b-characters');
+
+        // Tømmer figur-containere
+        trackACharsEl.innerHTML = '';
+        trackBCharsEl.innerHTML = '';
+
+        // Fyller Spor A med figurer
+        level.trackA.characters.forEach(characterName => {
+            const charImg = document.createElement('img');
+            charImg.src = 'assets/image/bilder/mennesker.png';
+            charImg.alt = characterName;
+            charImg.className = 'character-sprite';
+            trackACharsEl.appendChild(charImg);
+        });
+
+        // Fyller Spor B med figurer
+        level.trackB.characters.forEach(characterName => {
+            const charImg = document.createElement('img');
+            charImg.src = 'assets/image/bilder/mennesker.png';
+            charImg.alt = characterName;
+            charImg.className = 'character-sprite';
+            trackBCharsEl.appendChild(charImg);
+        });
 
         //Tilbakestiller alt for runden
-        dilemmaTextElement.textContent = level.dilemmaText; // Vis ny dilemma-tekst
-        timerElement.textContent = this.state.timeLeft; // Vis start-tid (30)
-        this.state.leverPulled = false; // Nullstill valget
-        leverButton.textContent = "TREKK I SPAKEN"; // Nullstill knappetekst
-        leverButton.disabled = false; // Gjenaktiver knappen for den nye runden
+        dilemmaTextElement.textContent = level.dilemmaText;
+        timerElement.textContent = this.state.timeLeft;
+        this.state.leverPulled = false; 
+        
+        // Tilbakestiller spaken til "av"
+        leverButton.src = 'assets/image/bilder/lever-off.png'; 
+        leverButton.style.pointerEvents = 'auto'; 
 
-        feedbackElement.textContent = ""; // fjerner feedback fra forrige runde
+        feedbackElement.textContent = "";
         console.log("Nivå " + level.levelId + " er lastet!");
 
         // Starter timeren
         this.startTimer();
     },
 
-    // Start timer funksjon
+    // 30 sek timer funksjon
     startTimer: function() {
         const timerElement = document.getElementById('timer');
-
-        // Tilbakestiller tiden (siden vi kanskje starter et nytt nivå)
         this.state.timeLeft = 30;
         timerElement.textContent = this.state.timeLeft;
-
-        // Starter en teller som kjører en funksjon hvert sekund
         this.state.timerId = setInterval(() => {
-            // Trekker fra ett sekund
             this.state.timeLeft--; 
-            
-            // Oppdater timeren / teksten på skjermen
             timerElement.textContent = this.state.timeLeft;
-
-            // Sjekker om tiden har løpt ut
             if (this.state.timeLeft <= 0) {
-                this.endRound(); // Avslutter runden 
+                this.endRound();
             }
         }, 1000); 
     },
 
     // Funksjon for endRound 
     endRound: function() {
-        // Stopper timeren fra å telle videre
         clearInterval(this.state.timerId); 
-        
-        // Loggfører hva spilleren valgte
         console.log("Runden er over! Spak trukket: " + this.state.leverPulled);
         
-        // Deaktiver spaken etter at runden er over
-        document.getElementById('lever-button').disabled = true;
+        // Deaktiver spaken 
+        document.getElementById('lever-button').style.pointerEvents = 'none';
 
-        //Logikk for tilbakemelding
+        //Logikk for tilbakemelding etter valg
         const level = gameData[this.state.currentLevel];
         const feedbackElement = document.getElementById('feedback-text');
 
         if (this.state.leverPulled) {
-            // Spilleren TRAKK spaken (valgte Spor B)
             feedbackElement.textContent = level.feedback.feedbackB;
         } else {
-            // Spilleren TRAKK IKKE spaken (valgte Spor A)
             feedbackElement.textContent = level.feedback.feedbackA;
         }
+        
+        // HER SKAL TOG ANIMASJONEN
+        // this.startTrainAnimation();
 
-        // Forbereder neste nivå (eller avslutter spillet)
+        // Forbereder neste nivå eller avslutter spillet
         setTimeout(() => {
-            // Logikk for å laste neste nivå kommer her...
             console.log("Gjør klar for neste nivå...");
-            // game.loadLevel(this.state.currentLevel + 1); // <-- Slik gjør vi det senere
-        }, 3000); // Vent 3 sekunder (3000ms)
+            // game.loadLevel(this.state.currentLevel + 1);
+        }, 3000);
     },
 
     // Funksjon for spaken 
     handleLeverPull: function() {
-        // Hvis valget allerede er tatt gjør ingenting
         if (this.state.leverPulled) return;
-
-        // Registrer valget
         this.state.leverPulled = true;
         console.log("Valg tatt! Spaken er trukket.");
 
-        // Visuell feedback til spilleren
+        // Henter spak figuren
         const leverButton = document.getElementById('lever-button');
-        leverButton.textContent = "VALG TATT";
-        leverButton.disabled = true; // Deaktiver knappen
+        // Bytt bildet til "på"
+        leverButton.src = 'assets/image/bilder/lever-on.png'; 
+        // Deaktiver videre klikking etter valg
+        leverButton.style.pointerEvents = 'none'; 
 
-        // Avslutt runden umiddelbart
+        // Avslutter runden 
         this.endRound();
     },
 
     // initialiserer spillet, kjøres én gang
     init: function() {
-        // Hent spak-knappen
+        // Hent spak-bildet
         const leverButton = document.getElementById('lever-button');
-        
-
         leverButton.addEventListener('click', this.handleLeverPull.bind(this));
     }
 }; 
