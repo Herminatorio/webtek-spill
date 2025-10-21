@@ -7,7 +7,7 @@ const gameData = [
         trackB: { characters: ['Østlending','Østlending','Østlending','Østlending','Østlending',] },
         feedback: {
             feedbackB: "Bra! Østlendingene hadde sikkert fortjent det.",
-            feedbakA: "Jævla psykopat"
+            feedbackA: "Jævla psykopat" 
         }
     }
     //... Flere nivåer kan legges til her som nye objekter
@@ -19,24 +19,29 @@ const game = {
     state: {
         currentLevel: 0,
         timeLeft: 30,
-        timerId: null 
-        leverPulled: false
+        timerId: null, 
+        leverPulled: false 
     },
 
-    // Funksjon for loadLevel
+    // Funksjon for loadLevel (laster inn et nytt nivå)
     loadLevel: function(levelIndex) {
+        // Hent data for det spesifikke nivået
         const level = gameData[levelIndex];
+
+        // Hent HTML-elementene vi skal endre
         const dilemmaTextElement = document.getElementById('dilemma-text');
         const timerElement = document.getElementById('timer');
         const leverButton = document.getElementById('lever-button');
+        const feedbackElement = document.getElementById('feedback-text');
 
         //Tilbakestiller alt for runden
-        dilemmaTextElement.textContent = level.dilemmaText;
-        timerElement.textContent = this.state.timeLeft;
-        this.state.leverPulled = false; 
-        leverButton.textContent = "TREKK I SPAKEN"; 
-        leverButton.disabled = false; 
+        dilemmaTextElement.textContent = level.dilemmaText; // Vis ny dilemma-tekst
+        timerElement.textContent = this.state.timeLeft; // Vis start-tid (30)
+        this.state.leverPulled = false; // Nullstill valget
+        leverButton.textContent = "TREKK I SPAKEN"; // Nullstill knappetekst
+        leverButton.disabled = false; // Gjenaktiver knappen for den nye runden
 
+        feedbackElement.textContent = ""; // fjerner feedback fra forrige runde
         console.log("Nivå " + level.levelId + " er lastet!");
 
         // Starter timeren
@@ -47,7 +52,7 @@ const game = {
     startTimer: function() {
         const timerElement = document.getElementById('timer');
 
-        // Tilbakestiller tiden
+        // Tilbakestiller tiden (siden vi kanskje starter et nytt nivå)
         this.state.timeLeft = 30;
         timerElement.textContent = this.state.timeLeft;
 
@@ -68,42 +73,62 @@ const game = {
 
     // Funksjon for endRound 
     endRound: function() {
+        // Stopper timeren fra å telle videre
         clearInterval(this.state.timerId); 
         
-        // Logger resultatet
+        // Loggfører hva spilleren valgte
         console.log("Runden er over! Spak trukket: " + this.state.leverPulled);
         
         // Deaktiver spaken etter at runden er over
         document.getElementById('lever-button').disabled = true;
+
+        //Logikk for tilbakemelding
+        const level = gameData[this.state.currentLevel];
+        const feedbackElement = document.getElementById('feedback-text');
+
+        if (this.state.leverPulled) {
+            // Spilleren TRAKK spaken (valgte Spor B)
+            feedbackElement.textContent = level.feedback.feedbackB;
+        } else {
+            // Spilleren TRAKK IKKE spaken (valgte Spor A)
+            feedbackElement.textContent = level.feedback.feedbackA;
+        }
+
+        // Forbereder neste nivå (eller avslutter spillet)
+        setTimeout(() => {
+            // Logikk for å laste neste nivå kommer her...
+            console.log("Gjør klar for neste nivå...");
+            // game.loadLevel(this.state.currentLevel + 1); // <-- Slik gjør vi det senere
+        }, 3000); // Vent 3 sekunder (3000ms)
     },
 
-    // funksjon for spaken
+    // Funksjon for spaken 
     handleLeverPull: function() {
+        // Hvis valget allerede er tatt gjør ingenting
         if (this.state.leverPulled) return;
 
+        // Registrer valget
         this.state.leverPulled = true;
         console.log("Valg tatt! Spaken er trukket.");
 
-        // visuell feedback
+        // Visuell feedback til spilleren
         const leverButton = document.getElementById('lever-button');
         leverButton.textContent = "VALG TATT";
-        leverButton.disabled = true; 
+        leverButton.disabled = true; // Deaktiver knappen
 
+        // Avslutt runden umiddelbart
         this.endRound();
     },
 
-    // init (for å sette opp lyttere)
+    // initialiserer spillet, kjøres én gang
     init: function() {
         // Hent spak-knappen
         const leverButton = document.getElementById('lever-button');
         
+
         leverButton.addEventListener('click', this.handleLeverPull.bind(this));
     }
 }; 
 
 // Kjører init-funksjonen når skriptet lastes
 game.init();
-
-
-
-};
