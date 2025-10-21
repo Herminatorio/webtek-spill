@@ -11,4 +11,7 @@ startButton.addEventListener('click', () => {
 
     // Viser spillskjermen 
     gameScreen.classList.remove('hidden');
+
+    // Laster inn det første nivået 
+    game.loadLevel(0); 
 });
