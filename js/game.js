@@ -20,6 +20,7 @@ const game = {
         currentLevel: 0,
         timeLeft: 30,
         timerId: null 
+        leverPulled: false
     },
 
     // Funksjon for loadLevel
@@ -27,9 +28,14 @@ const game = {
         const level = gameData[levelIndex];
         const dilemmaTextElement = document.getElementById('dilemma-text');
         const timerElement = document.getElementById('timer');
+        const leverButton = document.getElementById('lever-button');
 
+        //Tilbakestiller alt for runden
         dilemmaTextElement.textContent = level.dilemmaText;
-        timerElement.textContent = this.state.timeLeft; 
+        timerElement.textContent = this.state.timeLeft;
+        this.state.leverPulled = false; 
+        leverButton.textContent = "TREKK I SPAKEN"; 
+        leverButton.disabled = false; 
 
         console.log("Nivå " + level.levelId + " er lastet!");
 
@@ -62,10 +68,42 @@ const game = {
 
     // Funksjon for endRound 
     endRound: function() {
-        // Stopper timeren
         clearInterval(this.state.timerId); 
         
-        console.log("Runden er over!");
-        // konsekvenser og animasjoner her senere ENDRE DETTE
+        // Logger resultatet
+        console.log("Runden er over! Spak trukket: " + this.state.leverPulled);
+        
+        // Deaktiver spaken etter at runden er over
+        document.getElementById('lever-button').disabled = true;
+    },
+
+    // funksjon for spaken
+    handleLeverPull: function() {
+        if (this.state.leverPulled) return;
+
+        this.state.leverPulled = true;
+        console.log("Valg tatt! Spaken er trukket.");
+
+        // visuell feedback
+        const leverButton = document.getElementById('lever-button');
+        leverButton.textContent = "VALG TATT";
+        leverButton.disabled = true; 
+
+        this.endRound();
+    },
+
+    // init (for å sette opp lyttere)
+    init: function() {
+        // Hent spak-knappen
+        const leverButton = document.getElementById('lever-button');
+        
+        leverButton.addEventListener('click', this.handleLeverPull.bind(this));
     }
+}; 
+
+// Kjører init-funksjonen når skriptet lastes
+game.init();
+
+
+
 };
