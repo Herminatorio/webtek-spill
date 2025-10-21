@@ -1,12 +1,16 @@
 // Struktur for alle spillnivåer
-const gameData = },
-        trackB: { characters: ['Prosjektleder'] },
+const gameData = [
+    {
+        levelId: 1,
+        dilemmaText: "Et tog er på vei mot en Trønder. Du kan trekke i en spak for å sende det mot fem østlendinger. Hva gjør du?",
+        trackA: { characters: ['Trønder'] },
+        trackB: { characters: ['Østlending','Østlending','Østlending','Østlending','Østlending',] },
         feedback: {
-            psychopath: "Effektivt! Prosjektlederen hadde sikkert fortjent det.",
-            sheep: "Du ofret flertallet for mindretallet, akkurat som forventet."
+            feedbackB: "Bra! Østlendingene hadde sikkert fortjent det.",
+            feedbakA: "Jævla psykopat"
         }
     }
-    // Flere nivåer kan legges til her som nye objekter
+    //... Flere nivåer kan legges til her som nye objekter
 ];
 
 // Hovedobjekt for spillet
