@@ -32,28 +32,48 @@ main {
 }
 
 #start-screen {
-    text-align: center; 
-    background-color: white;
-    padding: 40px 60px;
-    border: 3px solid #333;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+    position: relative; 
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
-#start-button {
-    background-color: #ff4136;
-    color: white;
-    border: none; 
-    padding: 20px 40px; 
-    font-size: 24px; 
-    font-weight: bold;
-    cursor: pointer; 
-    border-radius: 10px;
-    transition: background-color 0.3s;
+#start-lever {
+    position: absolute;
+    /* Juster disse verdiene for å plassere spaken */
+    bottom: 20%;
+    left: 70%;
+    
+    width: 10%; 
+    min-width: 80px;
+    max-width: 150px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s;
+}
+#start-lever:hover {
+    transform: scale(1.1);
 }
 
-#start-button:hover {
-    background-color: #d13028; 
+#start-developers {
+    position: absolute;
+    /* Juster disse for å plassere dem på togskinnene */
+    bottom: 25%;
+    left: 30%;
+    
+    width: 30%; /* Juster bredden på 'utviklere.png' */
+    z-index: 2;
+}
+
+#start-train {
+    position: absolute;
+    /* Juster 'bottom' for å treffe skinnene */
+    bottom: 22%;
+    left: -30%; /* Start utenfor skjermen */
+    
+    width: 25%;
+    min-width: 200px;
+    z-index: 5;
 }
 
 /* Skjule og vise seksjoner med JavaScript */
@@ -209,4 +229,23 @@ main {
 
 .train-move-b {
     animation: anim-track-b 5s linear forwards;
+}
+
+/* Animasjon for dansende utviklere */
+@keyframes anim-developer-dance {
+    0% { transform: rotate(-8deg); }
+    50% { transform: rotate(8deg); }
+    100% { transform: rotate(-8deg); }
+}
+.dancing {
+    animation: anim-developer-dance 1s ease-in-out infinite;
+}
+
+/* Animasjon for intro-toget */
+@keyframes anim-intro-train {
+    from { left: -30%; }
+    to { left: 110%; } /* Kjører tvers over skjermen */
+}
+.intro-train-moving {
+    animation: anim-intro-train 3s linear forwards;
 }

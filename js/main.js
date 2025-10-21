@@ -1,29 +1,52 @@
-// Henter referanser til HTML-elementene vi trenger
-const startButton = document.getElementById('start-button');
+// Henter referanser til STARTSIDEN
+const startLever = document.getElementById('start-lever');
+const startDevelopers = document.getElementById('start-developers');
+const startTrain = document.getElementById('start-train');
 const startScreen = document.getElementById('start-screen');
-const gameScreen = document.getElementById('game-screen');
 
-// Henter elementer vi må endre
+// Henter referanser til SPILLSIDEN
+const gameScreen = document.getElementById('game-screen');
 const mainElement = document.querySelector('main');
 const pageBackground = document.getElementById('page-background');
 
-// Venter på at startknappen blir klikket
-startButton.addEventListener('click', () => {
+// Start dansingen på startsiden
+startDevelopers.classList.add('dancing');
 
-    // Skjuler startskjermen 
-    startScreen.classList.add('hidden');
+// Venter på at spaken blir klikket
+startLever.addEventListener('click', () => {
 
-    // Viser spillskjermen 
-    gameScreen.classList.remove('hidden');
+    // Stopp dansingen
+    startDevelopers.classList.remove('dancing');
 
-    // Fjerner sentreringen fra main
-    mainElement.style.justifyContent = 'flex-start';
-    mainElement.style.alignItems = 'flex-start';
+    // Bytt spak-bildet
+    startLever.src = 'assets/image/bilder/lever-on.png';
+    
+    // Gjør spaken u-klikkbar
+    startLever.style.pointerEvents = 'none';
 
-    // Bytter bakgrunnsbildet
-    // VIKTIG: LEGG INN DILEMMA BAKGRUNN HER!!!
-    pageBackground.style.backgroundImage = "url('../assets/image/bilder/spill-bakgrunn.png')";
+    // Start toget!
+    startTrain.classList.add('intro-train-moving');
 
-    // Laster inn det første nivået 
-    game.loadLevel(0); 
+    // Vent til tog-animasjonen er ferdig 
+    setTimeout(() => {
+        
+        // Spillet starter
+
+        // Skjul startskjermen 
+        startScreen.classList.add('hidden');
+
+        // Vis spillskjermen 
+        gameScreen.classList.remove('hidden');
+
+        // Fjern sentreringen fra main
+        mainElement.style.justifyContent = 'flex-start';
+        mainElement.style.alignItems = 'flex-start';
+
+        // Bytt bakgrunnsbildet 
+        pageBackground.style.backgroundImage = "url('assets/image/bilder/spill-bakgrunn.png')";
+
+        // Last inn det første nivået
+        game.loadLevel(0); 
+
+    }, 3000); 
 });
