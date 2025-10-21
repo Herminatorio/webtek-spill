@@ -37,6 +37,7 @@ const game = {
         const feedbackElement = document.getElementById('feedback-text');
         const trackACharsEl = document.getElementById('track-a-characters');
         const trackBCharsEl = document.getElementById('track-b-characters');
+        const trainElement = document.getElementById('train');
 
         // Tømmer figur-containere
         trackACharsEl.innerHTML = '';
@@ -68,8 +69,12 @@ const game = {
         // Tilbakestiller spaken til "av"
         leverButton.src = 'assets/image/bilder/lever-off.png'; 
         leverButton.style.pointerEvents = 'auto'; 
-
+        
         feedbackElement.textContent = "";
+
+        //Nullstiller toget
+        trainElement.classList.remove('train-move-a', 'train-move-b');
+
         console.log("Nivå " + level.levelId + " er lastet!");
 
         // Starter timeren
@@ -94,28 +99,29 @@ const game = {
     endRound: function() {
         clearInterval(this.state.timerId); 
         console.log("Runden er over! Spak trukket: " + this.state.leverPulled);
-        
-        // Deaktiver spaken 
-        document.getElementById('lever-button').style.pointerEvents = 'none';
+        document.getElementById('lever-button').style.pointerEvents = 'none'; // Deaktiver spaken 
 
-        //Logikk for tilbakemelding etter valg
+        //Tog-animasjon og tilbakemelding
+        const trainElement = document.getElementById('train');
         const level = gameData[this.state.currentLevel];
         const feedbackElement = document.getElementById('feedback-text');
 
         if (this.state.leverPulled) {
+            // Spilleren TRAKK spaken (valgte Spor B)
             feedbackElement.textContent = level.feedback.feedbackB;
+            trainElement.classList.add('train-move-b'); 
         } else {
+            // Spilleren lot være (valgte Spor A)
             feedbackElement.textContent = level.feedback.feedbackA;
+            trainElement.classList.add('train-move-a'); 
         }
-        
-        // HER SKAL TOG ANIMASJONEN
-        // this.startTrainAnimation();
+
 
         // Forbereder neste nivå eller avslutter spillet
         setTimeout(() => {
             console.log("Gjør klar for neste nivå...");
             // game.loadLevel(this.state.currentLevel + 1);
-        }, 3000);
+        }, 5000);
     },
 
     // Funksjon for spaken 

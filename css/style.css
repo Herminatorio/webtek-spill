@@ -168,3 +168,45 @@ main {
 #lever-button:hover {
     transform: scale(1.1); 
 }
+
+/* TOG-ANIMASJON */
+
+/* Animasjonen for å kjøre på SPOR A */
+@keyframes anim-track-a {
+    from {
+        left: -25%; 
+    }
+    to {
+        left: 110%;
+    }
+}
+
+/* Animasjonen for å kjøre på SPOR B */
+@keyframes anim-track-b {
+    0% {
+        left: -25%;
+        top: 40%; 
+    }
+    30% {
+        left: 35%; 
+        top: 40%; 
+    }
+    40% {
+        left: 45%; 
+        top: 65%;  
+    }
+    100% {
+        left: 110%; 
+        top: 65%;  
+    }
+}
+
+/* CSS-klasser for å bruke animasjonene */
+
+.train-move-a {
+    animation: anim-track-a 4s linear forwards;
+}
+
+.train-move-b {
+    animation: anim-track-b 5s linear forwards;
+}
