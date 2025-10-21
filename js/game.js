@@ -18,9 +18,15 @@ const game = {
         timerId: null 
     },
 
+    // Funksjon for loadLevel
     loadLevel: function(levelIndex) {
+        const level = gameData[levelIndex];
+        const dilemmaTextElement = document.getElementById('dilemma-text');
+        const timerElement = document.getElementById('timer');
+
         dilemmaTextElement.textContent = level.dilemmaText;
         timerElement.textContent = this.state.timeLeft; 
+
         console.log("Nivå " + level.levelId + " er lastet!");
 
         // Starter timeren
