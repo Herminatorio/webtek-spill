@@ -40,7 +40,6 @@ main {
 
 #start-lever {
     position: absolute;
-    /* Juster disse verdiene for å plassere spaken */
     bottom: 44%;
     left: 42%;
     
@@ -48,31 +47,40 @@ main {
     min-width: 240px;
     max-width: 400px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 3;
     transition: transform 0.2s;
 }
 
 
 #start-developers {
     position: absolute;
-    /* Juster disse for å plassere dem på togskinnene */
     bottom: 14%;
     left: 37%;
     
-    width: 30%; /* Juster bredden på 'utviklere.png' */
+    width: 30%; 
     z-index: 2;
 }
 
 #start-train {
     position: absolute;
-    /* Juster 'bottom' for å treffe skinnene */
     bottom: 15%;
-    left: -80%; /* Start utenfor skjermen */
+    left: -80%; 
     
     width: 30%;
     min-width: 1500px;
     max-width: 4000px;
     z-index: 5;
+}
+
+#start-logo {
+    position: absolute;
+    top: -10%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    
+    width: 30%; 
+    max-width: 850px; 
+    z-index: 2; 
 }
 
 /* Skjule og vise seksjoner med JavaScript */

@@ -10,9 +10,21 @@ const gameData = [
             feedbackB: "Bra! Østlendingene hadde sikkert fortjent det.",
             feedbackA: "Jævla psykopat" 
         }
+    },
 
-        //Her kan vi legge til resten av av dilemmaene
+    {
+        // Dilemma 2:BI v NTNU
+        levelId: 2,
+        dilemmaText: "Et tog er på vei mot 2x NTNU-studenter. Du kan trekke i en spak for å sende det mot 5x BI-studenter som diskuterer formueskatten. Hva gjør du?",
+        trackA: { characters: ['NTNU Student', 'NTNU Student'] },
+        trackB: { characters: ['BI Student','BI Student','BI Student','BI Student','BI Student',] },
+        feedback: {
+            feedbackB: "Helt riktig! De hadde for mye studielån uansett.",
+            feedbackA: "Du ofret 2 ingeniører for 5... financebros? Kaldt." 
+        }
     }
+    
+    // HER LEGGER VI INN ALLE NIVÅENE
     
 ];
 
@@ -122,8 +134,19 @@ const game = {
 
         // Forbereder neste nivå eller avslutter spillet
         setTimeout(() => {
-            console.log("Gjør klar for neste nivå...");
-            // game.loadLevel(this.state.currentLevel + 1);
+        // Går til neste nivå
+        this.state.currentLevel++; 
+
+        // Sjekker om det finnes flere nivå
+        if (this.state.currentLevel < gameData.length) {
+        // Ja = last inn neste nivå
+            game.loadLevel(this.state.currentLevel);
+        } else {
+        // Nei = spillet er ferdig!
+        console.log("Spillet er ferdig!");
+        alert("Du er syk i hodet!"); 
+        window.location.reload(); // Tilbake til start
+        }
         }, 5000);
     },
 
