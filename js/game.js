@@ -72,8 +72,11 @@ const game = {
         
         feedbackElement.textContent = "";
 
-        //Nullstiller toget
-        trainElement.classList.remove('train-move-a', 'train-move-b');
+        // Tog animasjon 
+        // Nullstiller fra forrige runde
+        trainElement.classList.remove('train-move-a', 'train-move-b', 'train-creeping');
+        void trainElement.offsetWidth; 
+        trainElement.classList.add('train-creeping');
 
         console.log("Nivå " + level.levelId + " er lastet!");
 

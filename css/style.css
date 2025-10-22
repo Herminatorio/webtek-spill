@@ -142,11 +142,12 @@ main {
 
 #train {
     position: absolute;
-    width: 20%; 
-    min-width: 150px;
+    width: 5%;
+    min-width: 750px;
+    max-width: 2000px;
     
-    top: 40%; 
-    left: -25%;
+    top: 25%; 
+    left: 5%;
     z-index: 5;
 }
 
@@ -158,12 +159,12 @@ main {
 
 #track-a-characters {
     top: 45%; 
-    left: 60%;
+    left: 65%;
 }
 
 #track-b-characters {
-    top: 65%;
-    left: 50%;
+    top: 80%;
+    left: 65%;
 }
 
 .character-sprite {
@@ -190,10 +191,20 @@ main {
 
 /* TOG-ANIMASJON */
 
+/*Animasjon for toget før valget*/
+@keyframes anim-train-creep {
+    from {
+        left: -30%; 
+    }
+    to {
+        left: 6%;
+    }
+}
+
 /* Animasjonen for å kjøre på SPOR A */
 @keyframes anim-track-a {
     from {
-        left: -25%; 
+        left: 6%; 
     }
     to {
         left: 110%;
@@ -203,34 +214,34 @@ main {
 /* Animasjonen for å kjøre på SPOR B */
 @keyframes anim-track-b {
     0% {
-        left: -25%;
+        left: 6%;
         top: 40%; 
     }
-    30% {
-        left: 35%; 
-        top: 40%; 
-    }
-    40% {
+    20% {
         left: 45%; 
-        top: 65%;  
+        top: 65%;   
     }
     100% {
         left: 110%; 
-        top: 65%;  
+        top: 65%;   
     }
 }
 
 /* CSS-klasser for å bruke animasjonene */
 
+.train-creeping {
+    animation: anim-train-creep 30s linear forwards;
+}
+
 .train-move-a {
-    animation: anim-track-a 4s linear forwards;
+    animation: anim-track-a 2s linear forwards;
 }
 
 .train-move-b {
-    animation: anim-track-b 5s linear forwards;
+    animation: anim-track-b 3s linear forwards;
 }
 
-/* Animasjon for dansende utviklere */
+/* Animasjon for startside  */
 @keyframes anim-developer-dance {
     0% { transform: rotate(-8deg); }
     50% { transform: rotate(8deg); }
