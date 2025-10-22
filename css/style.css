@@ -199,10 +199,10 @@ main {
 #lever-button {
     position: absolute;
     bottom: 10%;
-    right: 5%;
-    width: 10%; 
-    min-width: 80px;
-    max-width: 150px;
+    left: 5%;
+    width: 50%; 
+    min-width: 240px;
+    max-width: 400px;
     cursor: pointer;
     transition: transform 0.2s;
     z-index: 10;
