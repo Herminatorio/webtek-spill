@@ -303,7 +303,7 @@ const game = {
         this.endRound();
     },
 
-        // i handleIgnore(): slå opp element(er) før bruk
+        // Funksjon for ignore-button
     handleIgnore: function () {
         if (this.state.ignored) return;
         this.state.ignored = true;
