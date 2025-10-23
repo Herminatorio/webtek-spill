@@ -1,9 +1,16 @@
 body {
-    font-family: sans-serif; /* Bytte til egen font etterhvert!*/
+    font-family: "MinFont"; /* Bytte til egen font etterhvert!*/
     color: black;
     margin: 0;
     padding: 0;
     height: 100vh;
+}
+
+@font-face {
+    font-family: "MinFont";
+    src: url(/assets/font.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* Bakgrunns*/
