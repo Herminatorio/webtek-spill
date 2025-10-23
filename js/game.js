@@ -125,10 +125,32 @@ const game = {
             // Spilleren TRAKK spaken (valgte Spor B)
             feedbackElement.textContent = level.feedback.feedbackB;
             trainElement.classList.add('train-move-b'); 
+
+            //Bytter bilde slik at de blir kjørt på spor B
+            //Lagt til en liten timer, for at det blir riktig.
+            setTimeout(() => {
+                const trackBCharsEl = document.getElementById('track-b-characters');
+                const trackBImages = trackBCharsEl.querySelectorAll('img.character-sprite');
+                
+                trackBImages.forEach(img => {
+                    img.src = 'assets/image/bilder/mennesker_dod.png';
+                });
+            }, 1000);
+
         } else {
             // Spilleren lot være (valgte Spor A)
             feedbackElement.textContent = level.feedback.feedbackA;
             trainElement.classList.add('train-move-a'); 
+            //Bytter bilde slik at de blir kjørt på spor A
+            //Lagt på en liten delay
+            setTimeout(() => {
+                const trackACharsEl = document.getElementById('track-a-characters');
+                const trackAImages = trackACharsEl.querySelectorAll('img.character-sprite');
+                
+                trackAImages.forEach(img => {
+                    img.src = 'assets/image/bilder/mennesker_dod.png';
+                });
+            }, 1000); 
         }
 
 

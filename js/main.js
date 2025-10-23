@@ -27,6 +27,14 @@ startLever.addEventListener('click', () => {
     // Start toget!
     startTrain.classList.add('intro-train-moving');
 
+    
+    // Vent til toget treffer utviklerne
+    setTimeout(() => {
+        // Bytter til det påkjørte bildet
+        startDevelopers.src = 'assets/image/bilder/utviklere_dod.png';
+    }, 1300); 
+ 
+
     // Vent til tog-animasjonen er ferdig 
     setTimeout(() => {
         
