@@ -346,3 +346,67 @@ main {
 .intro-train-moving {
     animation: anim-intro-train 3s linear forwards;
 }
+
+/* Plasser menyen fast i venstre hjørne */
+nav {
+    position: fixed;   /* gjør at den alltid ligger fast */
+    top: 10px;         /* 10px ned fra toppen */
+    left: 10px;        /* 10px inn fra venstre */
+    z-index: 1000;     /* sørger for at den ligger over annet innhold */
+}
+
+/* Knappen */
+.dropbtn {
+    background-color: #333;
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Innholdet i dropdown (skjult som standard) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;                 /* sørger for at den åpner rett under knappen */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Lenker i dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Vis menyen når man hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #555;
+}
+
+
+/* Marker aktiv side i menyen */
+.dropdown-content a.active {
+  background-color: #555; /* mørkere bakgrunn */
+  color: white;
+  font-weight: bold;
+}
+
