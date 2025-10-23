@@ -22,7 +22,97 @@ const gameData = [
             feedbackB: "Helt riktig! De hadde for mye studielån uansett.",
             feedbackA: "Du ofret 2 ingeniører for 5... financebros? Kaldt." 
         }
+    },
+
+    {
+        // Dilemma 3:Kuer vs. 1 veganer
+        levelId: 3,
+        dilemmaText: "Et tog er på vei mot 5 kuer. Du kan trekke i en spak for å sende det mot 1 veganer. Hva gjør du?",
+        trackA: { characters: ['Kuer', 'Kuer', 'Kuer', 'Kuer', 'Kuer'] },
+        trackB: { characters: ['Veganer'] },
+        feedback: {
+            feedbackB: "Helt riktig! Veganeren vil at han skal dø for å redde kuene.",
+            feedbackA: "Buuuu! Du ofret 5 kuer."
+        }
+    },
+    {
+        // Dilemma 4:1 person du hater intenst vs. 5 helt tilfeldige.
+        levelId: 4,
+        dilemmaText: "Et tog er på vei mot 5 helt tilfeldige personer. Du kan trekke i en spak for å sende det mot 1 person du hater intenst. Hva gjør du?",
+        trackA: { characters: ['Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig'] },
+        trackB: { characters: ['Person du hater intenst'] },
+        feedback: {
+            feedbackB: "Helt riktig! Noen må jo ta ansvar.",
+            feedbackA: "Ikke bra! Du ofret 5 tilfeldige personer."
+        }
+    },
+    {
+        // Dilemma 5:Trump vs Putin 
+        levelId: 5,
+        dilemmaText: "Et tog er på vei mot Putin. Du kan trekke i en spak for å sende det mot Trump. Hva gjør du?",
+        trackA: { characters: ['Putin'] },
+        trackB: { characters: ['Trump'] },
+        feedback: {
+            feedbackB: "Feil! Vi må itj dræp Trump, vi må Make America Great Again!",
+            feedbackA: "Endelig blei vi kvitt Putin."
+        }
+    },
+    {
+        // Dilemma 6:1 Digfor student vs 5 informatikk studenter 
+        levelId: 6,
+        dilemmaText: "Et tog er på vei mot 1 Digfor student. Du kan trekke i en spak for å sende det mot 5 informatikk studenter. Hva gjør du?",
+        trackA: { characters: ['Digfor student'] },
+        trackB: { characters: ['Informatikk student', 'Informatikk student', 'Informatikk student', 'Informatikk student', 'Informatikk student'] },
+        feedback: {
+            feedbackB: "Bra! Informatikk studenter er jo bare datamaskiner uansett.",
+            feedbackA: "Nei! Digfor e bæst, ingen protæst!."
+        }
+    },
+    {
+        // Dilemma 7:Rasist vs homofob 
+        levelId: 7,
+        dilemmaText: "Et tog er på vei mot 1 homofob. Du kan trekke i en spak for å sende det mot 1 rasist. Hva gjør du?",
+        trackA: { characters: ['Homofob'] },
+        trackB: { characters: ['Rasist'] },
+        feedback: {
+            feedbackB: "De er like dårlig, bra vi ble kvitt en!",
+            feedbackA: "De er like dårlig, bra vi ble kvitt en!."
+        }
+    },
+    {
+        // Dilemma 8:10 stakkarslig barn vs din nærmeste venn Marius Borg Høiby
+        levelId: 8,
+        dilemmaText: "Et tog er på vei mot din nærmeste venn. Du kan trekke i en spak for å sende det mot 10 stakkarslig barn fra Afrika med daglig kalorikonsumasjon på 200 kalorier. Hva gjør du?",
+        trackA: { characters: ['Venn'] },
+        trackB: { characters: ['Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn'] },
+        feedback: {
+            feedbackB: "Psykopat! Du ofret 10 barn for en venn.",
+            feedbackA: "Det må vennene dine forstå."
+        }
+    },
+    {
+        // Dilemma 9:Marius Borg Høiby vs Charlie Kirk
+        levelId: 9,
+        dilemmaText: "Et tog er på vei mot Marius Borg Høiby. Du kan trekke i en spak for å sende det mot Charlie Kirk. Hva gjør du?",
+        trackA: { characters: ['Marius Borg Høiby'] },
+        trackB: { characters: ['Charlie Kirk'] },
+        feedback: {
+            feedbackB: "Hmm... bra valg?",
+            feedbackA: "Hmm... bra valg?"
+        }
+    },
+    {
+        // Dilemma 10:Første smittede med svartedauen(hindre smitte) vs første smittede med covid(hindre smitte) 
+        levelId: 10,
+        dilemmaText: "Et tog er på vei mot Første smittede med covid. Du kan trekke i en spak for å sende det mot Første smittede med svartedauen. Hva gjør du?",
+        trackA: { characters: ['Første smittede med covid'] },
+        trackB: { characters: ['Første smittede med svartedauen'] },
+        feedback: {
+            feedbackB: "Hmm... bra valg?",
+            feedbackA: "Hmm... bra valg?"
+        }
     }
+
     
     // HER LEGGER VI INN ALLE NIVÅENE
     
