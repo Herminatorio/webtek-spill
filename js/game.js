@@ -192,7 +192,7 @@ const gameData = [
     {
         // Dilemma 18: Krypto bros
         levelId: 18,
-        dilemmaText: "Toget er på vei mot 1 person. Du kan bytte spor og treffe serveren som holder kryptobeholdningen til 5000 folk som satser sparepengene sine på 'XRP coin' basert på 'egen research'"
+        dilemmaText: "Toget er på vei mot 1 person. Du kan bytte spor og treffe serveren som holder kryptobeholdningen til 5000 folk som satser sparepengene sine på 'XRP coin' basert på 'egen research'",
         trackA: { characters: ['Person'] },
         trackB: { characters: ['Server'] }, //Legge inn egen figur
         feedback: {
@@ -200,7 +200,6 @@ const gameData = [
             feedbackA: "XRP til månen! (Ikke økonomisk råd)"
         }
     },
-  
 ];
 
 // Generell kode for spillet
