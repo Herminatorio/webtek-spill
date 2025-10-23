@@ -79,7 +79,7 @@ const game = {
         this.state.leverPulled = false; 
         
         // Tilbakestiller spaken til "av"
-        leverButton.src = 'assets/image/bilder/lever-off.png'; 
+        leverButton.src = 'assets/image/bilder/spakoff.png'; 
         leverButton.style.pointerEvents = 'auto'; 
         
         feedbackElement.textContent = "";
@@ -164,12 +164,22 @@ const game = {
         // Ja = last inn neste nivå
             game.loadLevel(this.state.currentLevel);
         } else {
-        // Nei = spillet er ferdig!
-        console.log("Spillet er ferdig!");
-        alert("Du er syk i hodet!"); 
-        window.location.reload(); // Tilbake til start
+            // Nei, spillet er ferdig!
+            console.log("Spillet er ferdig!");
+            
+            // Henter og skjuler spillskjermen
+            document.getElementById('game-screen').classList.add('hidden');
+            
+            // Henter og viser slutt-skjermen
+            document.getElementById('end-screen').classList.remove('hidden');
+
+            // Nullstiller bakgrunnen og sentreringen
+            document.getElementById('page-background').style.backgroundImage = "url('assets/image/bilder/startside.png')";
+            const mainElement = document.querySelector('main');
+            mainElement.style.justifyContent = 'center';
+            mainElement.style.alignItems = 'center';
         }
-        }, 5000);
+    }, 5000); 
     },
 
     // Funksjon for spaken 
@@ -181,7 +191,7 @@ const game = {
         // Henter spak figuren
         const leverButton = document.getElementById('lever-button');
         // Bytt bildet til "på"
-        leverButton.src = 'assets/image/bilder/lever-on.png'; 
+        leverButton.src = 'assets/image/bilder/spakon.png'; 
         // Deaktiver videre klikking etter valg
         leverButton.style.pointerEvents = 'none'; 
 

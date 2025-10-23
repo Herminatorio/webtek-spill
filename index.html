@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trolley Problem - Gruppe 12</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trolley Problem - Gruppe 12</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -12,6 +12,18 @@
 
     <nav>
     </nav>
+  <nav>
+    <div class="dropdown">
+      <button class="dropbtn">Meny ☰</button>
+      <div class="dropdown-content">
+        <a href="index.html" class="active">Hjem</a>
+        <a href="about.html">Om oss</a>
+        <a href="rules.html">Regler</a>
+        <a href="faq.html">Ofte stilte spørsmål</a>
+        <a href="contact.html">Kontakt oss</a>
+      </div>
+    </div>
+  </nav>
 
     <main>
         <section id="start-screen">
@@ -44,7 +56,7 @@
 
              <img 
                  id="lever-button" 
-                 src="assets/image/bilder/lever-off.png" 
+                 src="assets/image/bilder/spakoff.png" 
                  alt="Spak"
               >
          
@@ -54,9 +66,28 @@
              <p>Vi er gruppe 12!</p>
         </section>
 
-    </main>
+        <section id="end-screen" class="hidden">
+            <h2>Takk for at du spilte!</h2>
+            <h3>Laget av:</h3>
+            <ul>
+                <li><strong>Lukas L. Paley:</strong> Spillkode ansvarlig (<a href="https://www.linkedin.com/in/lukas-paley" target="_blank">LinkedIn</a>)</li>
+                <li><strong>Tobias H. Windjusveen:</strong> UX ansvarlig + spillkode (<a href="https://www.linkedin.com/in/tobias-windjusveen-3860b537a/" target="_blank">LinkedIn</a>)</li>
+                <li><strong>Herman O. Narum:</strong> Musikk ansvarlig + spillkode (<a href="https://www.linkedin.com/in/herman-narum-210372343/" target="_blank">LinkedIn</a>)</li>
+                <li><strong>Jonathan K. Foss:</strong> Innhold ansvarlig + spillkode (<a href="https://www.linkedin.com/in/jonathan-kneringer-foss-07420538b/" target="_blank">LinkedIn</a>)</li>
+                <li><strong>Robin K. Gjesdal:</strong> Grafisk desing ansvarlig + spillkode (<a href="https://www.linkedin.com/in/robin-gjesdal-b498682b8/" target="_blank">LinkedIn</a>)</li>
+            </ul>
+            <button id="restart-button">Gå tilbake til startsiden</button>
+        </section>
 
-    <script src="js/game.js"></script> 
-    <script src="js/main.js"></script>
+    </main>
+  <main>
+    <section id="start-screen">
+      <h1>Trolley Problem</h1>
+      <button id="start-button">START SPILLET</button>
+    </section>
+  </main>
+
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

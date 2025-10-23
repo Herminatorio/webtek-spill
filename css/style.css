@@ -47,8 +47,8 @@ main {
 
 #start-lever {
     position: absolute;
-    bottom: 44%;
-    left: 42%;
+    bottom: 40%;
+    left: 40%;
     
     width: 50%; 
     min-width: 240px;
@@ -183,17 +183,17 @@ main {
 
 .characters {
     position: absolute;
-    height: 10%;
+    height: 20%;
     z-index: 2;
 }
 
 #track-a-characters {
-    top: 45%; 
+    top: 35%; 
     left: 65%;
 }
 
 #track-b-characters {
-    top: 80%;
+    top: 70%;
     left: 65%;
 }
 
@@ -207,9 +207,9 @@ main {
     position: absolute;
     bottom: 10%;
     left: 5%;
-    width: 50%; 
-    min-width: 240px;
-    max-width: 400px;
+    width: 15%; 
+    min-width: 40px;
+    max-width: 150px;
     cursor: pointer;
     transition: transform 0.2s;
     z-index: 10;
@@ -217,6 +217,70 @@ main {
 
 #lever-button:hover {
     transform: scale(1.1); 
+}
+
+/* Slutt skjerm stil*/
+
+#end-screen {
+    text-align: center; 
+    background-color: white;
+    padding: 20px 40px;
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+    z-index: 100; 
+    max-width: 600px;
+    width: 90%;
+}
+
+#end-screen h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+
+#end-screen h3 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+#end-screen ul {
+    list-style: none; 
+    padding: 0;
+    text-align: left;
+    margin: 20px auto;
+}
+
+#end-screen li {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+#end-screen a {
+    color: #0077b5; 
+    text-decoration: none;
+    font-weight: bold;
+}
+#end-screen a:hover {
+    text-decoration: underline;
+}
+
+#restart-button {
+    background-color: #ff4136;
+    color: white;
+    border: none; 
+    padding: 15px 30px; 
+    font-size: 1.2rem; 
+    font-weight: bold;
+    cursor: pointer; 
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+#restart-button:hover {
+    background-color: #d13028; 
 }
 
 /* TOG-ANIMASJON */
@@ -289,3 +353,67 @@ main {
 .intro-train-moving {
     animation: anim-intro-train 3s linear forwards;
 }
+
+/* Plasser menyen fast i venstre hjørne */
+nav {
+    position: fixed;   /* gjør at den alltid ligger fast */
+    top: 10px;         /* 10px ned fra toppen */
+    left: 10px;        /* 10px inn fra venstre */
+    z-index: 1000;     /* sørger for at den ligger over annet innhold */
+}
+
+/* Knappen */
+.dropbtn {
+    background-color: #333;
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Innholdet i dropdown (skjult som standard) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;                 /* sørger for at den åpner rett under knappen */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Lenker i dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Vis menyen når man hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #555;
+}
+
+
+/* Marker aktiv side i menyen */
+.dropdown-content a.active {
+  background-color: #555; /* mørkere bakgrunn */
+  color: white;
+  font-weight: bold;
+}
+
