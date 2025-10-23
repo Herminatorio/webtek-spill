@@ -4,7 +4,7 @@ const gameData = [
         // Dilemma 1: Trønder v Østlendinger
         levelId: 1,
         dilemmaText: "Et tog er på vei mot en Trønder. Du kan trekke i en spak for å sende det mot fem østlendinger. Hva gjør du?",
-        trackA: { characters: ['Trønder'] },
+        trackA: { characters: ['Trønder'] }, //Legge inn egen figur
         trackB: { characters: ['Østlending','Østlending','Østlending','Østlending','Østlending',] },
         feedback: {
             feedbackB: "Bra! Østlendingene hadde sikkert fortjent det.",
@@ -17,7 +17,7 @@ const gameData = [
         levelId: 2,
         dilemmaText: "Et tog er på vei mot 2x NTNU-studenter. Du kan trekke i en spak for å sende det mot 5x BI-studenter som diskuterer formueskatten. Hva gjør du?",
         trackA: { characters: ['NTNU Student', 'NTNU Student'] },
-        trackB: { characters: ['BI Student','BI Student','BI Student','BI Student','BI Student',] },
+        trackB: { characters: ['BI Student','BI Student','BI Student','BI Student','BI Student',] }, //Legge inn egen figur
         feedback: {
             feedbackB: "Helt riktig! De hadde for mye studielån uansett.",
             feedbackA: "Du ofret 2 ingeniører for 5... financebros? Kaldt." 
@@ -28,7 +28,7 @@ const gameData = [
         // Dilemma 3:Kuer vs. 1 veganer
         levelId: 3,
         dilemmaText: "Et tog er på vei mot 5 kuer. Du kan trekke i en spak for å sende det mot 1 veganer. Hva gjør du?",
-        trackA: { characters: ['Kuer', 'Kuer', 'Kuer', 'Kuer', 'Kuer'] },
+        trackA: { characters: ['Kuer', 'Kuer', 'Kuer', 'Kuer', 'Kuer'] }, //Legge inn egen figur
         trackB: { characters: ['Veganer'] },
         feedback: {
             feedbackB: "Helt riktig! Veganeren vil at han skal dø for å redde kuene.",
@@ -51,7 +51,7 @@ const gameData = [
         levelId: 5,
         dilemmaText: "Et tog er på vei mot Putin. Du kan trekke i en spak for å sende det mot Trump. Hva gjør du?",
         trackA: { characters: ['Putin'] },
-        trackB: { characters: ['Trump'] },
+        trackB: { characters: ['Trump'] }, 
         feedback: {
             feedbackB: "Feil! Vi må itj dræp Trump, vi må Make America Great Again!",
             feedbackA: "Endelig blei vi kvitt Putin."
@@ -111,11 +111,96 @@ const gameData = [
             feedbackB: "Hmm... bra valg?",
             feedbackA: "Hmm... bra valg?"
         }
-    }
-
-    
-    // HER LEGGER VI INN ALLE NIVÅENE
-    
+    },
+    {
+        // Dilemma 11:Du er problemet
+        levelId: 11,
+        dilemmaText: "Det er ingen dilemma, DU ER PROBLEMET. Drar du i spaken?",
+        trackA: { characters: [] },
+        trackB: { characters: [] },
+        feedback: {
+            feedbackB: "Hmm... bra valg?",
+            feedbackA: "Hmm... bra valg?"
+        }
+    },
+    {
+        // Dilemma 12: Paradoks
+        levelId: 12,
+        dilemmaText: "Toget er på vei mot de 5 utviklerne før de lagde dette spillet! Trekk i spaken, og du sender toget mot serveren som kjører spillet. Hva gjør du?",
+        trackA: { characters: ['Spillutvikler','Spillutvikler','Spillutvikler','Spillutvikler','Spillutvikler'] },
+        trackB: { characters: ['Spilllogikk'] }, //Legge inn egen figur
+        feedback: {
+            feedbackB: "Du ødela spillet! Game Over på en måte. Paradoks avverget?🤔",
+            feedbackA: "Utviklerne er borte... men hvordan trakk du i spaken hvis spillet aldri ble lagd? 🤔"
+        }
+    },
+    {
+        // Dilemma 13: Double it
+        levelId: 13,
+        dilemmaText: "Toget er på vei mot 1 person. Du kan double it and give it to the next person. Trekker du i spaken?",
+        trackA: { characters: ['Person'] },
+        trackB: { characters: [] },
+        feedback: {
+            feedbackB: "Sender problemet videre til neste person... som sikkert er like ansvarlig som deg?!",
+            feedbackA: "Du lot det skje. Du tror du er en god person, men noen er døde pga. deg!."
+        }
+    },
+    {
+        // Dilemma 14: Kapitalisme
+        levelId: 14,
+        dilemmaText: "Du kan skifte spor når som helst, men det vil føre til forsinkelser og mindre profitt til ATB",
+        trackA: { characters: ['Person','Person','Person','Person','Person','Person'] },
+        trackB: { characters: [] },
+        feedback: {
+            feedbackB: "De 6 på sporet var en akseptabel kostnad for shareholder value!.",
+            feedbackA: "Dette kommer til å se stygt ut på kvartalsrapporten..."
+        }
+    },
+    {
+        // Dilemma 15: Tracksuit
+        levelId: 15,
+        dilemmaText: "Toget er på vei mot en med rød tracksuit. På det andre sporet står det en uten. Hva gjør du?",
+        trackA: { characters: ['Tracksuit'] }, //Legge inn egen figur
+        trackB: { characters: ['Person'] },
+        feedback: {
+            feedbackB: "Tracksuit er fett brur!",
+            feedbackA: "Han ville bare låne 100kr til bussen...."
+        }
+    },
+    {
+        // Dilemma 16: Dugnad
+        levelId: 16,
+        dilemmaText: "Toget er på vei mot 1 person som alltid sniker seg unna dugnad i borettslaget. Du kan bytte spor og treffe 5 personer som ALLTID stiller opp. Hva gjør du!",
+        trackA: { characters: ['Person'] },
+        trackB: { characters: ['Person','Person','Person','Person','Person'] },
+        feedback: {
+            feedbackB: "Nå må du bake kake og organisere bod-ryddingen selv",
+            feedbackA: "Rettferdigheten er servert!"
+        }
+    },
+    {
+        // Dilemma 17: Løkka folk
+        levelId: 17,
+        dilemmaText: 'Toget er på vei mot 5 hipstere fra Grunerløkka på vors som diskuterer at deres hjemmebrygget IPA har "for tydelige sitrusnoter". Du kan bytte spor og treffe en Tesla sjåfør som bruker blinklys i sinsenkrysset. Hva gjør du!',
+        trackA: { characters: ['Person','Person','Person','Person','Person'] },
+        trackB: { characters: ['Tesla'] },
+        feedback: {
+            feedbackB: "Nå er alt håp ute for trafikken!",
+            feedbackA: "Du gjorde vorset en tjeneste."
+        }
+    },
+    {
+        // Dilemma 18: Krypto bros
+        levelId: 18,
+        dilemmaText: "Toget er på vei mot 1 person. Du kan bytte spor og treffe serveren som holder kryptobeholdningen til 5000 folk som satser sparepengene sine på 'XRP coin' basert på 'egen research'"
+        trackA: { characters: ['Person'] },
+        trackB: { characters: ['Server'] }, //Legge inn egen figur
+        feedback: {
+            feedbackB: "5000 'investorer' er knust, og deres Lambo-drømmer er borte. Men du reddet en person fra... vel å bli påkjørt.",
+            feedbackA: "XRP til månen! (Ikke økonomisk råd)"
+        }
+    },
+  
 ];
 
 // Generell kode for spillet
