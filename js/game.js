@@ -125,7 +125,8 @@ const game = {
         currentLevel: 0,
         timeLeft: 30,
         timerId: null, 
-        leverPulled: false 
+        leverPulled: false,
+        ignored: false
     },
 
     // Funksjon for loadLevel som laster inn et nytt nivå
@@ -167,6 +168,7 @@ const game = {
         dilemmaTextElement.textContent = level.dilemmaText;
         timerElement.textContent = this.state.timeLeft;
         this.state.leverPulled = false; 
+        this.state.ignored = false;
         
         // Tilbakestiller spaken til "av"
         leverButton.src = 'assets/image/bilder/spakoff.png'; 
@@ -226,6 +228,18 @@ const game = {
                     img.src = 'assets/image/bilder/mennesker_dod.png';
                 });
             }, 1000);
+
+        } else if (this.state.ignored) {
+            feedbackElement.textContent = level.feedback.feedbackA;
+            trainElement.classList.add('train-move-a');
+            setTimeout(() => {
+                const trackACharsEl = document.getElementById('track-a-characters');
+                const trackAImages = trackACharsEl.querySelectorAll('img.character-sprite');
+                
+                trackAImages.forEach(img => {
+                    img.src = 'assets/image/bilder/mennesker_dod.png';
+                });
+            }, 1000); 
 
         } else {
             // Spilleren lot være (valgte Spor A)
@@ -289,11 +303,22 @@ const game = {
         this.endRound();
     },
 
+        // i handleIgnore(): slå opp element(er) før bruk
+    handleIgnore: function () {
+        if (this.state.ignored) return;
+        this.state.ignored = true;
+        console.log("Valg tatt! Spaken er ignorert!");
+
+        this.endRound();
+    },
+
     // initialiserer spillet, kjøres én gang
     init: function() {
         // Hent spak-bildet
         const leverButton = document.getElementById('lever-button');
+        const ignoreButton = document.getElementById('ignore-button');
         leverButton.addEventListener('click', this.handleLeverPull.bind(this));
+        ignoreButton.addEventListener('click', this.handleIgnore.bind(this));
     }
 }; 
 
