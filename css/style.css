@@ -231,7 +231,7 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
     z-index: 100; 
-    max-width: 600px;
+    max-width: 900px; 
     width: 90%;
 }
 
@@ -241,10 +241,11 @@ main {
 }
 
 #end-screen h3 {
-    font-size: 1.5rem;
+    font-size: 2rem; 
     border-bottom: 2px solid #eee;
     padding-bottom: 5px;
     margin-bottom: 15px;
+    text-align: left; 
 }
 
 #end-screen ul {
@@ -255,9 +256,13 @@ main {
 }
 
 #end-screen li {
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-    line-height: 1.4;
+    font-size: 2rem; 
+    margin-bottom: 18px; 
+    line-height: 1.6;
+}
+
+#end-screen li strong {
+    color: #000; 
 }
 
 #end-screen a {
@@ -274,12 +279,13 @@ main {
     color: white;
     border: none; 
     padding: 15px 30px; 
-    font-size: 1.2rem; 
+    font-size: 2.5rem; 
     font-weight: bold;
     cursor: pointer; 
     border-radius: 10px;
     transition: background-color 0.3s;
     margin-top: 20px;
+    font-family: 'TrolleyFont', sans-serif;
 }
 #restart-button:hover {
     background-color: #d13028; 
