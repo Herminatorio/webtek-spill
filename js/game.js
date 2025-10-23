@@ -164,12 +164,22 @@ const game = {
         // Ja = last inn neste nivå
             game.loadLevel(this.state.currentLevel);
         } else {
-        // Nei = spillet er ferdig!
-        console.log("Spillet er ferdig!");
-        alert("Du er syk i hodet!"); 
-        window.location.reload(); // Tilbake til start
+            // Nei, spillet er ferdig!
+            console.log("Spillet er ferdig!");
+            
+            // Henter og skjuler spillskjermen
+            document.getElementById('game-screen').classList.add('hidden');
+            
+            // Henter og viser slutt-skjermen
+            document.getElementById('end-screen').classList.remove('hidden');
+
+            // Nullstiller bakgrunnen og sentreringen
+            document.getElementById('page-background').style.backgroundImage = "url('assets/image/bilder/startside.png')";
+            const mainElement = document.querySelector('main');
+            mainElement.style.justifyContent = 'center';
+            mainElement.style.alignItems = 'center';
         }
-        }, 5000);
+    }, 5000); 
     },
 
     // Funksjon for spaken 

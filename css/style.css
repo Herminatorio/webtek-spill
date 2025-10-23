@@ -212,6 +212,70 @@ main {
     transform: scale(1.1); 
 }
 
+/* Slutt skjerm stil*/
+
+#end-screen {
+    text-align: center; 
+    background-color: white;
+    padding: 20px 40px;
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+    z-index: 100; 
+    max-width: 600px;
+    width: 90%;
+}
+
+#end-screen h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+
+#end-screen h3 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+#end-screen ul {
+    list-style: none; 
+    padding: 0;
+    text-align: left;
+    margin: 20px auto;
+}
+
+#end-screen li {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+#end-screen a {
+    color: #0077b5; 
+    text-decoration: none;
+    font-weight: bold;
+}
+#end-screen a:hover {
+    text-decoration: underline;
+}
+
+#restart-button {
+    background-color: #ff4136;
+    color: white;
+    border: none; 
+    padding: 15px 30px; 
+    font-size: 1.2rem; 
+    font-weight: bold;
+    cursor: pointer; 
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+#restart-button:hover {
+    background-color: #d13028; 
+}
+
 /* TOG-ANIMASJON */
 
 /*Animasjon for toget før valget*/
