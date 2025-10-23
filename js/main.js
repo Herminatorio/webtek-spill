@@ -58,3 +58,14 @@ startLever.addEventListener('click', () => {
 
     }, 3000); 
 });
+
+
+
+// Henter restart-knappen
+const restartButton = document.getElementById('restart-button');
+
+// Legger til lytter
+restartButton.addEventListener('click', () => {
+    // Laster siden på nytt for å gå tilbake til start
+    window.location.reload();
+});
