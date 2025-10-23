@@ -40,8 +40,8 @@ main {
 
 #start-lever {
     position: absolute;
-    bottom: 44%;
-    left: 42%;
+    bottom: 40%;
+    left: 40%;
     
     width: 50%; 
     min-width: 240px;
@@ -176,17 +176,17 @@ main {
 
 .characters {
     position: absolute;
-    height: 10%;
+    height: 20%;
     z-index: 2;
 }
 
 #track-a-characters {
-    top: 45%; 
+    top: 35%; 
     left: 65%;
 }
 
 #track-b-characters {
-    top: 80%;
+    top: 70%;
     left: 65%;
 }
 
@@ -200,9 +200,9 @@ main {
     position: absolute;
     bottom: 10%;
     left: 5%;
-    width: 50%; 
-    min-width: 240px;
-    max-width: 400px;
+    width: 15%; 
+    min-width: 40px;
+    max-width: 150px;
     cursor: pointer;
     transition: transform 0.2s;
     z-index: 10;
