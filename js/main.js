@@ -4,6 +4,12 @@ const startDevelopers = document.getElementById('start-developers');
 const startTrain = document.getElementById('start-train');
 const startScreen = document.getElementById('start-screen');
 
+// Opprett lyd for spillet (loop)
+const mainAudio = new Audio('assets/audio/spill.wav');
+mainAudio.preload = 'auto';
+mainAudio.loop = true;
+mainAudio.volume = 0.7; // juster om ønskelig
+
 // Henter referanser til SPILLSIDEN
 const gameScreen = document.getElementById('game-screen');
 const mainElement = document.querySelector('main');
@@ -14,6 +20,10 @@ startDevelopers.classList.add('dancing');
 
 // Venter på at spaken blir klikket
 startLever.addEventListener('click', () => {
+
+    // Start musikken (play-promise håndteres)
+    mainAudio.currentTime = 0;
+    mainAudio.play().catch(err => console.warn('Audio play feilet:', err));
 
     // Stopp dansingen
     startDevelopers.classList.remove('dancing');
