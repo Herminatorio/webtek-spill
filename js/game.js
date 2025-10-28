@@ -4,11 +4,18 @@ const gameData = [
         // Dilemma 1: Trønder v Østlendinger
         levelId: 1,
         dilemmaText: "Et tog er på vei mot en Trønder. Du kan trekke i en spak for å sende det mot fem østlendinger. Hva gjør du?",
-        trackA: { characters: ['Trønder'] }, //Legge inn egen figur
-        trackB: { characters: ['Østlending','Østlending','Østlending','Østlending','Østlending',] },
+        
+        trackA: {
+            characters: ['Trønder'],
+            trackImage: 'tronder.png',       // Egendefinert bilde
+            trackDeadImage: 'tronder_dod.png' // Egendefinert bilde dø
+        },
+
+        trackB: { characters: ['Østlending', 'Østlending','Østlending','Østlending','Østlending'] }, 
+        
         feedback: {
-            feedbackB: "Bra! Østlendingene hadde sikkert fortjent det.",
-            feedbackA: "Jævla psykopat" 
+            feedbackB: "Jævla psykopat!",
+            feedbackA: "Bra! Østlendingene fortjente det!" 
         }
     },
 
@@ -244,7 +251,16 @@ const game = {
         // Fyller Spor A med figurer
         level.trackA.characters.forEach(characterName => {
             const charImg = document.createElement('img');
-            charImg.src = 'assets/image/bilder/mennesker.png';
+
+            // Egendefinert figur ELLER standard
+            let imgSrc = 'assets/image/bilder/mennesker.png'; // Standard
+            
+            // Sjekker om trackA-objektet finnes OG om det har trackImage
+            if (level.trackA && level.trackA.trackImage) { 
+                imgSrc = 'assets/image/bilder/' + level.trackA.trackImage; // Bruk egendefinert bilde
+            }
+
+            charImg.src = imgSrc; 
             charImg.alt = characterName;
             charImg.className = 'character-sprite';
             trackACharsEl.appendChild(charImg);
@@ -253,7 +269,16 @@ const game = {
         // Fyller Spor B med figurer
         level.trackB.characters.forEach(characterName => {
             const charImg = document.createElement('img');
-            charImg.src = 'assets/image/bilder/mennesker.png';
+
+            // Egendefinert figur ELLER standard
+            let imgSrc = 'assets/image/bilder/mennesker.png'; // Standard
+            
+            // Sjekker om trackB-objektet finnes OG om det har trackImage
+            if (level.trackB && level.trackB.trackImage) { 
+                imgSrc = 'assets/image/bilder/' + level.trackB.trackImage; // Bruk egendefinert bilde
+            }
+
+            charImg.src = imgSrc; 
             charImg.alt = characterName;
             charImg.className = 'character-sprite';
             trackBCharsEl.appendChild(charImg);
@@ -300,13 +325,16 @@ const game = {
     // Funksjon for endRound 
     endRound: function() {
         clearInterval(this.state.timerId); 
-        console.log("Runden er over! Spak trukket: " + this.state.leverPulled);
+        console.log("Runden er over! Spak trukket: " + this.state.leverPulled + ", Ignorert: " + this.state.ignored); 
         document.getElementById('lever-button').style.pointerEvents = 'none'; // Deaktiver spaken 
 
         //Tog-animasjon og tilbakemelding
         const trainElement = document.getElementById('train');
         const level = gameData[this.state.currentLevel];
         const feedbackElement = document.getElementById('feedback-text');
+
+        // Stopper den sakte animasjonen før den raske starter
+        trainElement.classList.remove('train-creeping');
 
         if (this.state.leverPulled) {
             // Spilleren TRAKK spaken (valgte Spor B)
@@ -319,20 +347,37 @@ const game = {
                 const trackBCharsEl = document.getElementById('track-b-characters');
                 const trackBImages = trackBCharsEl.querySelectorAll('img.character-sprite');
                 
+                // Bestemmer riktig "død" bilde
+                let deadImgSrc = 'assets/image/bilder/mennesker_dod.png'; // Standard bilde
+                // Sjekk om nivået har definert et spesifikt dødt bilde for spor B
+                if (level.trackB && level.trackB.trackDeadImage) { 
+                    deadImgSrc = 'assets/image/bilder/' + level.trackB.trackDeadImage; // Bruk det spesifikke bildet
+                }
+                
                 trackBImages.forEach(img => {
-                    img.src = 'assets/image/bilder/mennesker_dod.png';
+                    img.src = deadImgSrc; // Bruker riktig bildekilde
                 });
             }, 1000);
 
         } else if (this.state.ignored) {
+            // Spilleren IGNORERTE (valgte Spor A)
             feedbackElement.textContent = level.feedback.feedbackA;
             trainElement.classList.add('train-move-a');
+            
+            //Bytter bilde slik at de blir kjørt på spor A
             setTimeout(() => {
                 const trackACharsEl = document.getElementById('track-a-characters');
                 const trackAImages = trackACharsEl.querySelectorAll('img.character-sprite');
                 
+                // Bestemmer riktig "død" bilde
+                let deadImgSrc = 'assets/image/bilder/mennesker_dod.png'; // Standard bilde
+                 // Sjekk om nivået har definert et spesifikt dødt bilde for spor A
+                if (level.trackA && level.trackA.trackDeadImage) {
+                    deadImgSrc = 'assets/image/bilder/' + level.trackA.trackDeadImage; // Bruk det spesifikke bildet
+                }
+                
                 trackAImages.forEach(img => {
-                    img.src = 'assets/image/bilder/mennesker_dod.png';
+                    img.src = deadImgSrc; // Bruk riktig bildekilde
                 });
             }, 1000); 
 
@@ -340,46 +385,42 @@ const game = {
             // Spilleren lot være (valgte Spor A)
             feedbackElement.textContent = level.feedback.feedbackA;
             trainElement.classList.add('train-move-a'); 
+            
             //Bytter bilde slik at de blir kjørt på spor A
             //Lagt på en liten delay
             setTimeout(() => {
                 const trackACharsEl = document.getElementById('track-a-characters');
                 const trackAImages = trackACharsEl.querySelectorAll('img.character-sprite');
                 
+                // Bestemmer riktig "død" bilde
+                let deadImgSrc = 'assets/image/bilder/mennesker_dod.png'; // Standard bilde
+                // Sjekk om nivået har definert et spesifikt dødt bilde for spor A
+                if (level.trackA && level.trackA.trackDeadImage) { 
+                    deadImgSrc = 'assets/image/bilder/' + level.trackA.trackDeadImage; // Bruk det spesifikke bildet
+                }
+                
                 trackAImages.forEach(img => {
-                    img.src = 'assets/image/bilder/mennesker_dod.png';
+                    img.src = deadImgSrc; // Bruk riktig bildekilde
                 });
             }, 1000); 
         }
 
-
-        // Forbereder neste nivå eller avslutter spillet
+        // Forbereder neste nivå eller avslutter spillet (DENNE DELEN ER UENDRET)
         setTimeout(() => {
-        // Går til neste nivå
-        this.state.currentLevel++; 
-
-        // Sjekker om det finnes flere nivå
-        if (this.state.currentLevel < gameData.length) {
-        // Ja = last inn neste nivå
-            game.loadLevel(this.state.currentLevel);
-        } else {
-            // Nei, spillet er ferdig!
-            console.log("Spillet er ferdig!");
-            
-            // Henter og skjuler spillskjermen
-            document.getElementById('game-screen').classList.add('hidden');
-            
-            // Henter og viser slutt-skjermen
-            document.getElementById('end-screen').classList.remove('hidden');
-
-            // Nullstiller bakgrunnen og sentreringen
-            document.getElementById('page-background').style.backgroundImage = "url('assets/image/bilder/startside.png')";
-            const mainElement = document.querySelector('main');
-            mainElement.style.justifyContent = 'center';
-            mainElement.style.alignItems = 'center';
-        }
-    }, 5000); 
-    },
+            this.state.currentLevel++; 
+            if (this.state.currentLevel < gameData.length) {
+                game.loadLevel(this.state.currentLevel);
+            } else {
+                console.log("Spillet er ferdig!");
+                document.getElementById('game-screen').classList.add('hidden');
+                document.getElementById('end-screen').classList.remove('hidden');
+                document.getElementById('page-background').style.backgroundImage = "url('assets/image/bilder/startside.png')";
+                const mainElement = document.querySelector('main');
+                mainElement.style.justifyContent = 'center';
+                mainElement.style.alignItems = 'center';
+            }
+        }, 5000); 
+    }, // Slutt på endRound
 
     // Funksjon for spaken 
     handleLeverPull: function() {
