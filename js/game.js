@@ -200,6 +200,17 @@ const gameData = [
             feedbackA: "XRP til månen! (Ikke økonomisk råd)"
         }
     },
+        {
+        // Dilemma 19: Navnbrødre
+        levelId: 19,
+        dilemmaText: "Toget er på vei mot Atle Olsø person. Du kan bytte spor og treffe Atle Nes. Hva gjør du?",
+        trackA: { characters: ['Atle Olsø'] }, //Legge inn egen figur
+        trackB: { characters: ['Atle Nes'] },  //Legge inn egen figur
+        feedback: {
+            feedbackB: "En mann har mistet sin navnbror :(",
+            feedbackA: "En mann har mistet sin navnbror :("
+        }
+    },
 ];
 
 // Generell kode for spillet
