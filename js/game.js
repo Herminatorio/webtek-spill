@@ -24,17 +24,16 @@ const gameData = [
         levelId: 2,
         dilemmaText: "Et tog er på vei mot 2x NTNU-studenter. Du kan trekke i en spak for å sende det mot 5x BI-studenter som diskuterer formueskatten. Hva gjør du?",
          trackA: {
-            characters: ['NTNU student'],
+            characters: ['NTNU student', 'NTNU student'],
             trackImage: 'ntnustudentlevende.png',       // Egendefinert bilde
             trackDeadImage: 'ntnustudentdod.png' // Egendefinert bilde dø
         },
          trackB: {
-            characters: ['BI student'],
+            characters: ['BI student','BI student','BI student','BI student','BI student',],
             trackImage: 'bistudentlevende.png',       // Egendefinert bilde
             trackDeadImage: 'bistudentdod.png' // Egendefinert bilde dø
         },
-        trackA: { characters: ['NTNU Student', 'NTNU Student'] },
-        trackB: { characters: ['BI Student','BI Student','BI Student','BI Student','BI Student',] }, //Legge inn egen figur
+        
         feedback: {
             feedbackB: "Helt riktig! De hadde for mye studielån uansett.",
             feedbackA: "Du ofret 2 ingeniører for 5... financebros? Kaldt." 
