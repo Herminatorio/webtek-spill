@@ -226,7 +226,7 @@ const gameData = [
             feedbackB: "En mann har mistet sin navnbror :(",
             feedbackA: "En mann har mistet sin navnbror :("
         }
-    },
+    }
 ];
 
 // Generell kode for spillet
@@ -237,7 +237,8 @@ const game = {
         timeLeft: 30,
         timerId: null, 
         leverPulled: false,
-        ignored: false
+        ignored: false,
+        deathCount: 0,
     },
 
     // Funksjon for loadLevel som laster inn et nytt nivå
@@ -252,6 +253,7 @@ const game = {
         const trackACharsEl = document.getElementById('track-a-characters');
         const trackBCharsEl = document.getElementById('track-b-characters');
         const trainElement = document.getElementById('train');
+        const deathCounterElement = document.getElementById('death-counter');
 
         // Tømmer figur-containere
         trackACharsEl.innerHTML = '';
@@ -305,6 +307,8 @@ const game = {
         
         feedbackElement.textContent = "";
 
+        deathCounterElement.textContent = "Drepte: " + this.state.deathCount;
+
         // Tog animasjon 
         // Nullstiller fra forrige runde
         trainElement.classList.remove('train-move-a', 'train-move-b', 'train-creeping');
@@ -341,14 +345,18 @@ const game = {
         const trainElement = document.getElementById('train');
         const level = gameData[this.state.currentLevel];
         const feedbackElement = document.getElementById('feedback-text');
+        const deathCounterElement = document.getElementById('death-counter');
 
         // Stopper den sakte animasjonen før den raske starter
         trainElement.classList.remove('train-creeping');
 
+        let deathsThisRound = 0;
+
         if (this.state.leverPulled) {
             // Spilleren TRAKK spaken (valgte Spor B)
             feedbackElement.textContent = level.feedback.feedbackB;
-            trainElement.classList.add('train-move-b'); 
+            trainElement.classList.add('train-move-b');
+            deathsThisRound = level.trackB.characters.length; 
 
             //Bytter bilde slik at de blir kjørt på spor B
             //Lagt til en liten timer, for at det blir riktig.
@@ -372,6 +380,7 @@ const game = {
             // Spilleren IGNORERTE (valgte Spor A)
             feedbackElement.textContent = level.feedback.feedbackA;
             trainElement.classList.add('train-move-a');
+            deathsThisRound = level.trackA.characters.length;
             
             //Bytter bilde slik at de blir kjørt på spor A
             setTimeout(() => {
@@ -393,7 +402,8 @@ const game = {
         } else {
             // Spilleren lot være (valgte Spor A)
             feedbackElement.textContent = level.feedback.feedbackA;
-            trainElement.classList.add('train-move-a'); 
+            trainElement.classList.add('train-move-a');
+            deathsThisRound = level.trackA.characters.length;
             
             //Bytter bilde slik at de blir kjørt på spor A
             //Lagt på en liten delay
@@ -414,6 +424,10 @@ const game = {
             }, 1000); 
         }
 
+        //Oppdater telleren
+        this.state.deathCount += deathsThisRound;
+        deathCounterElement.textContent = "Drepte: " + this.state.deathCount;
+
         // Forbereder neste nivå eller avslutter spillet (DENNE DELEN ER UENDRET)
         setTimeout(() => {
             this.state.currentLevel++; 
@@ -421,6 +435,7 @@ const game = {
                 game.loadLevel(this.state.currentLevel);
             } else {
                 console.log("Spillet er ferdig!");
+                document.getElementById('final-score').textContent = "Du drepte totalt: " + this.state.deathCount;
                 document.getElementById('game-screen').classList.add('hidden');
                 document.getElementById('end-screen').classList.remove('hidden');
                 document.getElementById('page-background').style.backgroundImage = "url('assets/image/bilder/startside.png')";
