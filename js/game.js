@@ -346,6 +346,11 @@ const game = {
         const level = gameData[this.state.currentLevel];
         const feedbackElement = document.getElementById('feedback-text');
         const deathCounterElement = document.getElementById('death-counter');
+        
+        //skrik lyd
+        const screamSound = new Audio('assets/audio/skrik.wav');
+        screamSound.volume = 0.04;
+        screamSound.preload = 'auto';
 
         // Stopper den sakte animasjonen før den raske starter
         trainElement.classList.remove('train-creeping');
@@ -358,6 +363,11 @@ const game = {
             trainElement.classList.add('train-move-b');
             deathsThisRound = level.trackB.characters.length; 
 
+            //skrikelyd
+            setTimeout(() => {
+                screamSound.currentTime = 0;
+                screamSound.play().catch(() => {});
+            }, 300);
             //Bytter bilde slik at de blir kjørt på spor B
             //Lagt til en liten timer, for at det blir riktig.
             setTimeout(() => {
@@ -382,6 +392,11 @@ const game = {
             trainElement.classList.add('train-move-a');
             deathsThisRound = level.trackA.characters.length;
             
+            //skrikelyd
+            setTimeout(() => {
+                screamSound.currentTime = 0;
+                screamSound.play().catch(() => {});
+            }, 300);
             //Bytter bilde slik at de blir kjørt på spor A
             setTimeout(() => {
                 const trackACharsEl = document.getElementById('track-a-characters');
@@ -405,6 +420,11 @@ const game = {
             trainElement.classList.add('train-move-a');
             deathsThisRound = level.trackA.characters.length;
             
+            //skrikelyd
+            setTimeout(() => {
+                screamSound.currentTime = 0;
+                screamSound.play().catch(() => {});
+            }, 300);
             //Bytter bilde slik at de blir kjørt på spor A
             //Lagt på en liten delay
             setTimeout(() => {
