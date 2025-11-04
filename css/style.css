@@ -435,9 +435,12 @@ nav {
     background-color: #333;
     color: white;
     padding: 10px 16px;
-    font-size: 16px;
+    font-size: 32px;
     border: none;
     cursor: pointer;
+
+    font-family: inherit; /* arver fonten fra body */
+    font-weight: bold;    /* valgfritt, gjør den tydeligere */
 }
 
 /* Container */
@@ -477,11 +480,82 @@ nav {
     background-color: #555;
 }
 
-
 /* Marker aktiv side i menyen */
-.dropdown-content a.active {
-  background-color: #555; /* mørkere bakgrunn */
-  color: white;
-  font-weight: bold;
+.dropdown-content a {
+    color: black;
+    padding: 14px 18px;   /* mer luft rundt teksten */
+    text-decoration: none;
+    display: block;
+    font-size: 1.8em;     /* større skrift */
+    font-weight: 600;     /* gjør teksten tydeligere */
 }
 
+/* Kun for infosider (about, rules, faq, contact) */
+.page-content {
+  max-width: 800px;
+  margin: 100px auto 40px auto; /* plass under menyen */
+  padding: 20px 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.page-content h1, 
+.page-content h2, 
+.page-content h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-weight: 700; /* gjør overskriftene tydeligere */
+}
+
+/* Overskrifter  */
+.page-content h1 {
+  font-size: 3.2em;   /* størst */
+}
+
+.page-content h2 {
+  font-size: 2.8em;   /* mellomstor */
+}
+
+.page-content h3 {
+  font-size: 2.4em;   /* litt mindre, men fortsatt større enn brødtekst */
+}
+
+.page-content p, 
+.page-content li {
+  font-size: 2.4em;   /* litt større skrift */
+  line-height: 1.2;   /* mer luft */
+}
+
+.page-content ul {
+  padding-left: 1.5em;
+}
+
+/* Egen stil for FAQ-siden */
+.faq-page .page-content {
+  max-width: 700px;              /* litt smalere boks */
+  margin: 50px auto 20px auto;   /* mindre luft over og under */
+  padding: 15px 20px;            /* mindre padding inni boksen */
+}
+
+.faq-page .page-content h1,
+.faq-page .page-content h2,
+.faq-page .page-content h3 {
+  margin-bottom: 0.5em;          /* mindre luft under overskrifter */
+}
+
+.faq-page .page-content h1 {
+  font-size: 2.4em;              /* litt mindre overskrift */
+}
+
+.faq-page .page-content h2 {
+  font-size: 2em;
+}
+
+.faq-page .page-content p,
+.faq-page .page-content li {
+  font-size: 1.8em;              /* mindre tekst */
+  line-height: 1.2;              /* tettere linjeavstand */
+  margin-bottom: 0.5em;          /* mindre luft mellom avsnitt */
+}
