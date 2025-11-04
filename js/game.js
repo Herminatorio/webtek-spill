@@ -43,17 +43,15 @@ const gameData = [
     {
         // Dilemma 3:Kuer vs. 1 veganer
         levelId: 3,
-        dilemmaText: "Et tog er på vei mot 1 veganer. Du kan trekke i en spak for å sende det mot 4 kuer. Hva gjør du?",
-        trackA: { characters: ['Veganer'],
-        }, //Legge inn egen figur
-        trackB: { characters: ['Kuer', 'Kuer', 'Kuer', 'Kuer'],
+        dilemmaText: "Et tog er på vei mot 5 kuer. Du kan trekke i en spak for å sende det mot 1 veganer. Hva gjør du?",
+        trackA: { characters: ['Kuer', 'Kuer', 'Kuer', 'Kuer', 'Kuer'],
         trackImage: 'kulevende.png',
-        trackDeadImage: 'kudod.png', 
-         },
+        trackDeadImage: 'kudod.png', }, //Legge inn egen figur
+        trackB: { characters: ['Veganer'] },
 
         feedback: {
-            feedbackB: "Buuuu! Du ofret 4 kuer.",
-            feedbackA: "Helt riktig! Veganeren vil at han skal dø for å redde kuene."
+            feedbackB: "Helt riktig! Veganeren vil at han skal dø for å redde kuene.",
+            feedbackA: "Buuuu! Du ofret 5 kuer."
         }
     },
     {
