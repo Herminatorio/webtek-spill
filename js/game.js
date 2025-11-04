@@ -44,8 +44,11 @@ const gameData = [
         // Dilemma 3:Kuer vs. 1 veganer
         levelId: 3,
         dilemmaText: "Et tog er på vei mot 5 kuer. Du kan trekke i en spak for å sende det mot 1 veganer. Hva gjør du?",
-        trackA: { characters: ['Kuer', 'Kuer', 'Kuer', 'Kuer', 'Kuer'] }, //Legge inn egen figur
+        trackA: { characters: ['Kuer', 'Kuer', 'Kuer', 'Kuer', 'Kuer'],
+        trackImage: 'kulevende.png',
+        trackDeadImage: 'kudod.png', }, //Legge inn egen figur
         trackB: { characters: ['Veganer'] },
+
         feedback: {
             feedbackB: "Helt riktig! Veganeren vil at han skal dø for å redde kuene.",
             feedbackA: "Buuuu! Du ofret 5 kuer."
@@ -66,8 +69,14 @@ const gameData = [
         // Dilemma 5:Trump vs Putin 
         levelId: 5,
         dilemmaText: "Et tog er på vei mot Putin. Du kan trekke i en spak for å sende det mot Trump. Hva gjør du?",
-        trackA: { characters: ['Putin'] },
-        trackB: { characters: ['Trump'] }, 
+        trackA: { characters: ['Putin'],
+        trackImage: 'putinlevende.png',
+        trackDeadImage: 'putindod.png',
+        },
+        trackB: { characters: ['Trump'], 
+        trackImage: 'trumplevende.png',
+        trackDeadImage: 'trumpdod.png',
+        }, 
         feedback: {
             feedbackB: "Feil! Vi må itj dræp Trump, vi må Make America Great Again!",
             feedbackA: "Endelig blei vi kvitt Putin."
@@ -77,7 +86,7 @@ const gameData = [
         // Dilemma 6:1 Digfor student vs 5 informatikk studenter 
         levelId: 6,
         dilemmaText: "Et tog er på vei mot 1 Digfor student. Du kan trekke i en spak for å sende det mot 5 informatikk studenter. Hva gjør du?",
-        trackA: { characters: ['Digfor student'] },
+        trackA: { characters: ['Digfor student'], },
         trackB: { characters: ['Informatikk student', 'Informatikk student', 'Informatikk student', 'Informatikk student', 'Informatikk student'] },
         feedback: {
             feedbackB: "Bra! Informatikk studenter er jo bare datamaskiner uansett.",
@@ -88,8 +97,14 @@ const gameData = [
         // Dilemma 7:Rasist vs homofob 
         levelId: 7,
         dilemmaText: "Et tog er på vei mot 1 homofob. Du kan trekke i en spak for å sende det mot 1 rasist. Hva gjør du?",
-        trackA: { characters: ['Homofob'] },
-        trackB: { characters: ['Rasist'] },
+        trackA: { characters: ['Homofob'],
+        trackImage: 'homofobrasistlevende.png',
+        trackDeadImage: 'homofobrasistdod.png',
+         },
+        trackB: { characters: ['Rasist'],
+        trackImage: 'homofobrasistlevende.png',
+        trackDeadImage: 'homofobrasistdod.png',
+         },
         feedback: {
             feedbackB: "De er like dårlig, bra vi ble kvitt en!",
             feedbackA: "De er like dårlig, bra vi ble kvitt en!."
@@ -100,7 +115,10 @@ const gameData = [
         levelId: 8,
         dilemmaText: "Et tog er på vei mot din nærmeste venn. Du kan trekke i en spak for å sende det mot 10 stakkarslig barn fra Afrika med daglig kalorikonsumasjon på 200 kalorier. Hva gjør du?",
         trackA: { characters: ['Venn'] },
-        trackB: { characters: ['Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn'] },
+        trackB: { characters: ['Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn'],
+        trackImage: 'afrikalevende.png',
+        trackDeadImage: 'afrikadod.png',
+         },
         feedback: {
             feedbackB: "Psykopat! Du ofret 10 barn for en venn.",
             feedbackA: "Det må vennene dine forstå."
@@ -144,7 +162,10 @@ const gameData = [
         levelId: 12,
         dilemmaText: "Toget er på vei mot de 5 utviklerne før de lagde dette spillet! Trekk i spaken, og du sender toget mot serveren som kjører spillet. Hva gjør du?",
         trackA: { characters: ['Spillutvikler','Spillutvikler','Spillutvikler','Spillutvikler','Spillutvikler'] },
-        trackB: { characters: ['Spilllogikk'] }, //Legge inn egen figur
+        trackB: { characters: ['Spilllogikk'],
+        trackImage: 'serverlevende.png',
+        trackDeadImage: 'serverdod.png',
+         }, //Legge inn egen figur
         feedback: {
             feedbackB: "Du ødela spillet! Game Over på en måte. Paradoks avverget?🤔",
             feedbackA: "Utviklerne er borte... men hvordan trakk du i spaken hvis spillet aldri ble lagd? 🤔"
@@ -176,7 +197,10 @@ const gameData = [
         // Dilemma 15: Tracksuit
         levelId: 15,
         dilemmaText: "Toget er på vei mot en med rød tracksuit. På det andre sporet står det en uten. Hva gjør du?",
-        trackA: { characters: ['Tracksuit'] }, //Legge inn egen figur
+        trackA: { characters: ['Tracksuit'],
+        trackImage: 'tracksuitlevende.png',
+        trackDeadImage: 'tracksuitdod.png',
+         }, //Legge inn egen figur
         trackB: { characters: ['Person'] },
         feedback: {
             feedbackB: "Tracksuit er fett brur!",
@@ -210,7 +234,10 @@ const gameData = [
         levelId: 18,
         dilemmaText: "Toget er på vei mot 1 person. Du kan bytte spor og treffe serveren som holder kryptobeholdningen til 5000 folk som satser sparepengene sine på 'XRP coin' basert på 'egen research'",
         trackA: { characters: ['Person'] },
-        trackB: { characters: ['Server'] }, //Legge inn egen figur
+        trackB: { characters: ['Server'],
+        trackImage: 'serverlevende.png',
+        trackDeadImage: 'serverdod.png',
+         }, //Legge inn egen figur
         feedback: {
             feedbackB: "5000 'investorer' er knust, og deres Lambo-drømmer er borte. Men du reddet en person fra... vel å bli påkjørt.",
             feedbackA: "XRP til månen! (Ikke økonomisk råd)"
@@ -220,8 +247,14 @@ const gameData = [
         // Dilemma 19: Navnbrødre
         levelId: 19,
         dilemmaText: "Toget er på vei mot Atle Olsø person. Du kan bytte spor og treffe Atle Nes. Hva gjør du?",
-        trackA: { characters: ['Atle Olsø'] }, //Legge inn egen figur
-        trackB: { characters: ['Atle Nes'] },  //Legge inn egen figur
+        trackA: { characters: ['Atle Olsø'], 
+        trackImage: 'atleolsolevende.png',
+        trackDeadImage: 'atleolsodod.png',
+        }, //Legge inn egen figur
+        trackB: { characters: ['Atle Nes'],
+        trackImage: 'atleneslevende.png',
+        trackDeadImage: 'atlenesdod.png',
+         },  //Legge inn egen figur
         feedback: {
             feedbackB: "En mann har mistet sin navnbror :(",
             feedbackA: "En mann har mistet sin navnbror :("
