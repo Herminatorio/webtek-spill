@@ -41,14 +41,14 @@ const gameData = [
     },
 
     {
-        // Dilemma 3: 1 person du hater intenst vs. 5 helt tilfeldige.
+        // Dilemma 3: 5 person du hater intenst vs. 1 du elsker.
         levelId: 3,
-        dilemmaText: "Et tog er på vei mot 5 helt tilfeldige personer. Du kan trekke i en spak for å sende det mot 1 person du hater intenst. Hva gjør du?",
-        trackA: { characters: ['Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig'] },
-        trackB: { characters: ['Person du hater intenst'] },
+        dilemmaText: "Et tog er på vei mot 5 personer du HATER. Du kan trekke i en spak for å sende det mot 1 person som alltid hoster vors. Hva gjør du?",
+        trackA: { characters: ['Hater', 'Hater', 'Hater', 'Hater', 'Hater'] },
+        trackB: { characters: ['Elsker'] },
         feedback: {
-            feedbackB: "Helt riktig! Noen må jo ta ansvar.",
-            feedbackA: "Ikke bra! Du ofret 5 tilfeldige personer."
+            feedbackB: "Nice guys always finish last...",
+            feedbackA: "Massemorder!"
         }
     },
     {
@@ -65,7 +65,7 @@ const gameData = [
     {
         // Dilemma 5: Navnbrødre
         levelId: 5,
-        dilemmaText: "Toget er på vei mot Atle Olsø person. Du kan bytte spor og treffe Atle Nes. Hva gjør du?",
+        dilemmaText: "Toget er på vei mot Atle Olsø. Du kan bytte spor og treffe Atle Nes. Hva gjør du?",
         trackA: { characters: ['Atle Olsø'],
         trackImage: 'atleolsolevende.png',     // Egendefinert bilde
         trackDeadImage: 'atleolsodod.png' 
