@@ -7,7 +7,7 @@ const gameData = [
         
         trackA: {
             characters: ['Trønder'],
-            trackImage: 'tronder.png',       // Egendefinert bilde
+            trackImage: 'tronder.png',     // Egendefinert bilde
             trackDeadImage: 'tronder_dod.png' // Egendefinert bilde dø
         },
 
@@ -25,12 +25,12 @@ const gameData = [
         dilemmaText: "Et tog er på vei mot 2x NTNU-studenter. Du kan trekke i en spak for å sende det mot 5x BI-studenter som diskuterer formueskatten. Hva gjør du?",
          trackA: {
             characters: ['NTNU student', 'NTNU student'],
-            trackImage: 'ntnustudentlevende.png',       // Egendefinert bilde
+            trackImage: 'ntnustudentlevende.png',     // Egendefinert bilde
             trackDeadImage: 'ntnustudentdod.png' // Egendefinert bilde dø
         },
          trackB: {
             characters: ['BI student','BI student','BI student','BI student','BI student',],
-            trackImage: 'bistudentlevende.png',       // Egendefinert bilde
+            trackImage: 'bistudentlevende.png',     // Egendefinert bilde
             trackDeadImage: 'bistudentdod.png' // Egendefinert bilde dø
         },
         
@@ -41,8 +41,89 @@ const gameData = [
     },
 
     {
-        // Dilemma 3:Kuer vs. 1 veganer
+        // Dilemma 3: 1 person du hater intenst vs. 5 helt tilfeldige.
         levelId: 3,
+        dilemmaText: "Et tog er på vei mot 5 helt tilfeldige personer. Du kan trekke i en spak for å sende det mot 1 person du hater intenst. Hva gjør du?",
+        trackA: { characters: ['Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig'] },
+        trackB: { characters: ['Person du hater intenst'] },
+        feedback: {
+            feedbackB: "Helt riktig! Noen må jo ta ansvar.",
+            feedbackA: "Ikke bra! Du ofret 5 tilfeldige personer."
+        }
+    },
+    {
+        // Dilemma 4: 1 Digfor student vs 5 informatikk studenter 
+        levelId: 4,
+        dilemmaText: "Et tog er på vei mot 1 Digfor student. Du kan trekke i en spak for å sende det mot 5 informatikk studenter. Hva gjør du?",
+        trackA: { characters: ['Digfor student'] },
+        trackB: { characters: ['Informatikk student', 'Informatikk student', 'Informatikk student', 'Informatikk student', 'Informatikk student'] },
+        feedback: {
+            feedbackB: "Bra! Informatikk studenter er jo bare datamaskiner uansett.",
+            feedbackA: "Nei! Digfor e bæst, ingen protæst!."
+        }
+    },
+    {
+        // Dilemma 5: Navnbrødre
+        levelId: 5,
+        dilemmaText: "Toget er på vei mot Atle Olsø person. Du kan bytte spor og treffe Atle Nes. Hva gjør du?",
+        trackA: { characters: ['Atle Olsø'],
+        trackImage: 'atleolsolevende.png',     // Egendefinert bilde
+        trackDeadImage: 'atleolsodod.png' 
+         }, 
+        trackB: { characters: ['Atle Nes'],
+        trackImage: 'atleneslevende.png',     // Egendefinert bilde
+        trackDeadImage: 'atlenestdod.png' 
+         },  //Legge inn egen figur
+        feedback: {
+            feedbackB: "En mann har mistet sin navnbror :(",
+            feedbackA: "En mann har mistet sin navnbror :("
+        }
+    },
+    {
+        // Dilemma 6: Tracksuit
+        levelId: 6,
+        dilemmaText: "Toget er på vei mot en med rød tracksuit. På det andre sporet står det en uten. Hva gjør du?",
+        trackA: { characters: ['Tracksuit'],
+        trackImage: 'tracksuitlevende.png',     
+        trackDeadImage: 'tracksuitdod.png' 
+         }, 
+        trackB: { characters: ['Person'] },
+        feedback: {
+            feedbackB: "Tracksuit er fett brur!",
+            feedbackA: "Han ville bare låne 100kr til bussen...."
+        }
+    },
+    {
+        // Dilemma 7: Du er problemet
+        levelId: 7,
+        dilemmaText: "Det er ingen dilemma, DU ER PROBLEMET. Drar du i spaken?",
+        trackA: { characters: [] },
+        trackB: { characters: [] },
+        feedback: {
+            feedbackB: "Hmm... bra valg?",
+            feedbackA: "Hmm... bra valg?"
+        }
+    },
+    {
+        // Dilemma 8: Trump vs Putin 
+        levelId: 8,
+        dilemmaText: "Et tog er på vei mot Putin. Du kan trekke i en spak for å sende det mot Trump. Hva gjør du?",
+        trackA: { characters: ['Putin'],
+        trackImage: 'putinlevende.png',     // Egendefinert bilde
+        trackDeadImage: 'putindod.png' 
+         },
+        trackB: { characters: ['Trump'],
+        trackImage: 'trumplevende.png',     // Egendefinert bilde
+        trackDeadImage: 'trumpdod.png' 
+         }, 
+        feedback: {
+            feedbackB: "Feil! Vi må itj dræp Trump, vi må Make America Great Again!",
+            feedbackA: "Endelig blei vi kvitt Putin."
+        }
+    },
+    {
+        // Dilemma 9: Kuer vs. 1 veganer
+        levelId: 9,
         dilemmaText: "Et tog er på vei mot 1 veganer. Du kan trekke i en spak for å sende det mot 4 uskyldige kuer. Hva gjør du?",
         trackA: { characters:['Veganer'],
          }, 
@@ -56,115 +137,12 @@ const gameData = [
         }
     },
     {
-        // Dilemma 4:1 person du hater intenst vs. 5 helt tilfeldige.
-        levelId: 4,
-        dilemmaText: "Et tog er på vei mot 5 helt tilfeldige personer. Du kan trekke i en spak for å sende det mot 1 person du hater intenst. Hva gjør du?",
-        trackA: { characters: ['Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig', 'Helt tilfeldig'] },
-        trackB: { characters: ['Person du hater intenst'] },
-        feedback: {
-            feedbackB: "Helt riktig! Noen må jo ta ansvar.",
-            feedbackA: "Ikke bra! Du ofret 5 tilfeldige personer."
-        }
-    },
-    {
-        // Dilemma 5:Trump vs Putin 
-        levelId: 5,
-        dilemmaText: "Et tog er på vei mot Putin. Du kan trekke i en spak for å sende det mot Trump. Hva gjør du?",
-        trackA: { characters: ['Putin'],
-        trackImage: 'putinlevende.png',       // Egendefinert bilde
-        trackDeadImage: 'putindod.png' 
-         },
-        trackB: { characters: ['Trump'],
-        trackImage: 'trumplevende.png',       // Egendefinert bilde
-        trackDeadImage: 'trumpdod.png' 
-         }, 
-        feedback: {
-            feedbackB: "Feil! Vi må itj dræp Trump, vi må Make America Great Again!",
-            feedbackA: "Endelig blei vi kvitt Putin."
-        }
-    },
-    {
-        // Dilemma 6:1 Digfor student vs 5 informatikk studenter 
-        levelId: 6,
-        dilemmaText: "Et tog er på vei mot 1 Digfor student. Du kan trekke i en spak for å sende det mot 5 informatikk studenter. Hva gjør du?",
-        trackA: { characters: ['Digfor student'] },
-        trackB: { characters: ['Informatikk student', 'Informatikk student', 'Informatikk student', 'Informatikk student', 'Informatikk student'] },
-        feedback: {
-            feedbackB: "Bra! Informatikk studenter er jo bare datamaskiner uansett.",
-            feedbackA: "Nei! Digfor e bæst, ingen protæst!."
-        }
-    },
-    {
-        // Dilemma 7:Rasist vs homofob 
-        levelId: 7,
-        dilemmaText: "Et tog er på vei mot 1 homofob. Du kan trekke i en spak for å sende det mot 1 rasist. Hva gjør du?",
-        trackA: { characters: ['Homofob'],
-        trackImage: 'homofobrasistlevende.png',       // Egendefinert bilde
-        trackDeadImage: 'homofobrasistdod.png' 
-         },
-        trackB: { characters: ['Rasist'], 
-        trackImage: 'homofobrasistlevende.png',       // Egendefinert bilde
-        trackDeadImage: 'homofobrasistdod.png' 
-        },
-        feedback: {
-            feedbackB: "De er like dårlig, bra vi ble kvitt en!",
-            feedbackA: "De er like dårlig, bra vi ble kvitt en!."
-        }
-    },
-    {
-        // Dilemma 8:10 stakkarslig barn vs din nærmeste venn Marius Borg Høiby
-        levelId: 8,
-        dilemmaText: "Et tog er på vei mot din nærmeste venn. Du kan trekke i en spak for å sende det mot 10 stakkarslig barn fra Afrika med daglig kalorikonsumasjon på 200 kalorier. Hva gjør du?",
-        trackA: { characters: ['Venn'] },
-        trackB: { characters: ['Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn'],
-        trackImage: 'afrikalevende.png',       // Egendefinert bilde
-        trackDeadImage: 'afrikadod.png' 
-         },
-        feedback: {
-            feedbackB: "Psykopat! Du ofret 10 barn for en venn.",
-            feedbackA: "Det må vennene dine forstå."
-        }
-    },
-    {
-        // Dilemma 9:Marius Borg Høiby vs Charlie Kirk
-        levelId: 9,
-        dilemmaText: "Et tog er på vei mot Marius Borg Høiby. Du kan trekke i en spak for å sende det mot Charlie Kirk. Hva gjør du?",
-        trackA: { characters: ['Marius Borg Høiby'] },
-        trackB: { characters: ['Charlie Kirk'] },
-        feedback: {
-            feedbackB: "Hmm... bra valg?",
-            feedbackA: "Hmm... bra valg?"
-        }
-    },
-    {
-        // Dilemma 10:Første smittede med svartedauen(hindre smitte) vs første smittede med covid(hindre smitte) 
+        // Dilemma 10: Paradoks
         levelId: 10,
-        dilemmaText: "Et tog er på vei mot Første smittede med covid. Du kan trekke i en spak for å sende det mot Første smittede med svartedauen. Hva gjør du?",
-        trackA: { characters: ['Første smittede med covid'] },
-        trackB: { characters: ['Første smittede med svartedauen'] },
-        feedback: {
-            feedbackB: "Hmm... bra valg?",
-            feedbackA: "Hmm... bra valg?"
-        }
-    },
-    {
-        // Dilemma 11:Du er problemet
-        levelId: 11,
-        dilemmaText: "Det er ingen dilemma, DU ER PROBLEMET. Drar du i spaken?",
-        trackA: { characters: [] },
-        trackB: { characters: [] },
-        feedback: {
-            feedbackB: "Hmm... bra valg?",
-            feedbackA: "Hmm... bra valg?"
-        }
-    },
-    {
-        // Dilemma 12: Paradoks
-        levelId: 12,
         dilemmaText: "Toget er på vei mot de 5 utviklerne før de lagde dette spillet! Trekk i spaken, og du sender toget mot serveren som kjører spillet. Hva gjør du?",
         trackA: { characters: ['Spillutvikler','Spillutvikler','Spillutvikler','Spillutvikler','Spillutvikler'] },
         trackB: { characters: ['Spilllogikk'],
-        trackImage: 'serverlevende.png',       // Egendefinert bilde
+        trackImage: 'serverlevende.png',     // Egendefinert bilde
         trackDeadImage: 'serverdod.png' 
          }, 
         feedback: {
@@ -173,19 +151,8 @@ const gameData = [
         }
     },
     {
-        // Dilemma 13: Double it
-        levelId: 13,
-        dilemmaText: "Toget er på vei mot 1 person. Du kan double it and give it to the next person. Trekker du i spaken?",
-        trackA: { characters: ['Person'] },
-        trackB: { characters: [] },
-        feedback: {
-            feedbackB: "Sender problemet videre til neste person... som sikkert er like ansvarlig som deg?!",
-            feedbackA: "Du lot det skje. Du tror du er en god person, men noen er døde pga. deg!."
-        }
-    },
-    {
-        // Dilemma 14: Kapitalisme
-        levelId: 14,
+        // Dilemma 11: Kapitalisme
+        levelId: 11,
         dilemmaText: "Du kan skifte spor når som helst, men det vil føre til forsinkelser og mindre profitt til ATB",
         trackA: { characters: ['Person','Person','Person','Person','Person','Person'] },
         trackB: { characters: [] },
@@ -195,33 +162,8 @@ const gameData = [
         }
     },
     {
-        // Dilemma 15: Tracksuit
-        levelId: 15,
-        dilemmaText: "Toget er på vei mot en med rød tracksuit. På det andre sporet står det en uten. Hva gjør du?",
-        trackA: { characters: ['Tracksuit'],
-        trackImage: 'tracksuitlevende.png',       
-        trackDeadImage: 'tracksuitdod.png' 
-         }, 
-        trackB: { characters: ['Person'] },
-        feedback: {
-            feedbackB: "Tracksuit er fett brur!",
-            feedbackA: "Han ville bare låne 100kr til bussen...."
-        }
-    },
-    {
-        // Dilemma 16: Dugnad
-        levelId: 16,
-        dilemmaText: "Toget er på vei mot 1 person som alltid sniker seg unna dugnad i borettslaget. Du kan bytte spor og treffe 5 personer som ALLTID stiller opp. Hva gjør du!",
-        trackA: { characters: ['Person'] },
-        trackB: { characters: ['Person','Person','Person','Person','Person'] },
-        feedback: {
-            feedbackB: "Nå må du bake kake og organisere bod-ryddingen selv",
-            feedbackA: "Rettferdigheten er servert!"
-        }
-    },
-    {
-        // Dilemma 17: Løkka folk
-        levelId: 17,
+        // Dilemma 12: Løkka folk
+        levelId: 12,
         dilemmaText: 'Toget er på vei mot 5 hipstere fra Grunerløkka på vors som diskuterer at deres hjemmebrygget IPA har "for tydelige sitrusnoter". Du kan bytte spor og treffe en Tesla sjåfør som bruker blinklys i sinsenkrysset. Hva gjør du!',
         trackA: { characters: ['Person','Person','Person','Person','Person'] },
         trackB: { characters: ['Tesla'] },
@@ -231,12 +173,12 @@ const gameData = [
         }
     },
     {
-        // Dilemma 18: Krypto bros
-        levelId: 18,
+        // Dilemma 13: Krypto bros
+        levelId: 13,
         dilemmaText: "Toget er på vei mot 1 person. Du kan bytte spor og treffe serveren som holder kryptobeholdningen til 5000 folk som satser sparepengene sine på 'XRP coin' basert på 'egen research'",
         trackA: { characters: ['Person'] },
         trackB: { characters: ['Server'],
-        trackImage: 'serverlevende.png',       
+        trackImage: 'serverlevende.png',     
         trackDeadImage: 'serverdod.png' 
          }, 
         feedback: {
@@ -244,21 +186,79 @@ const gameData = [
             feedbackA: "XRP til månen! (Ikke økonomisk råd)"
         }
     },
-        {
-        // Dilemma 19: Navnbrødre
-        levelId: 19,
-        dilemmaText: "Toget er på vei mot Atle Olsø person. Du kan bytte spor og treffe Atle Nes. Hva gjør du?",
-        trackA: { characters: ['Atle Olsø'],
-        trackImage: 'atleolsolevende.png',       // Egendefinert bilde
-        trackDeadImage: 'atleolsodod.png' 
-         }, 
-        trackB: { characters: ['Atle Nes'],
-        trackImage: 'atleneslevende.png',       // Egendefinert bilde
-        trackDeadImage: 'atlenestdod.png' 
-         },  //Legge inn egen figur
+    {
+        // Dilemma 14: Dugnad
+        levelId: 14,
+        dilemmaText: "Toget er på vei mot 1 person som alltid sniker seg unna dugnad i borettslaget. Du kan bytte spor og treffe 5 personer som ALLTID stiller opp. Hva gjør du!",
+        trackA: { characters: ['Person'] },
+        trackB: { characters: ['Person','Person','Person','Person','Person'] },
         feedback: {
-            feedbackB: "En mann har mistet sin navnbror :(",
-            feedbackA: "En mann har mistet sin navnbror :("
+            feedbackB: "Nå må du bake kake og organisere bod-ryddingen selv",
+            feedbackA: "Rettferdigheten er servert!"
+        }
+    },
+    {
+        // Dilemma 15: Double it
+        levelId: 15,
+        dilemmaText: "Toget er på vei mot 1 person. Du kan double it and give it to the next person. Trekker du i spaken?",
+        trackA: { characters: ['Person'] },
+        trackB: { characters: [] },
+        feedback: {
+            feedbackB: "Sender problemet videre til neste person... som sikkert er like ansvarlig som deg?!",
+            feedbackA: "Du lot det skje. Du tror du er en god person, men noen er døde pga. deg!."
+        }
+    },
+    {
+        // Dilemma 16: 10 stakkarslig barn vs din nærmeste venn Marius Borg Høiby
+        levelId: 16,
+        dilemmaText: "Et tog er på vei mot din nærmeste venn. Du kan trekke i en spak for å sende det mot 10 stakkarslig barn fra Afrika med daglig kalorikonsumasjon på 200 kalorier. Hva gjør du?",
+        trackA: { characters: ['Venn'] },
+        trackB: { characters: ['Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn', 'Stakkarslig barn'],
+        trackImage: 'afrikalevende.png',     // Egendefinert bilde
+        trackDeadImage: 'afrikadod.png' 
+         },
+        feedback: {
+            feedbackB: "Psykopat! Du ofret 10 barn for en venn.",
+            feedbackA: "Det må vennene dine forstå."
+        }
+    },
+    {
+        // Dilemma 17: Rasist vs homofob 
+        levelId: 17,
+        dilemmaText: "Et tog er på vei mot 1 homofob. Du kan trekke i en spak for å sende det mot 1 rasist. Hva gjør du?",
+        trackA: { characters: ['Homofob'],
+        trackImage: 'homofobrasistlevende.png',     // Egendefinert bilde
+        trackDeadImage: 'homofobrasistdod.png' 
+         },
+        trackB: { characters: ['Rasist'], 
+        trackImage: 'homofobrasistlevende.png',     // Egendefinert bilde
+        trackDeadImage: 'homofobrasistdod.png' 
+        },
+        feedback: {
+            feedbackB: "De er like dårlig, bra vi ble kvitt en!",
+            feedbackA: "De er like dårlig, bra vi ble kvitt en!."
+        }
+    },
+    {
+        // Dilemma 18: Marius Borg Høiby vs Charlie Kirk
+        levelId: 18,
+        dilemmaText: "Et tog er på vei mot Marius Borg Høiby. Du kan trekke i en spak for å sende det mot Charlie Kirk. Hva gjør du?",
+        trackA: { characters: ['Marius Borg Høiby'] },
+        trackB: { characters: ['Charlie Kirk'] },
+        feedback: {
+            feedbackB: "Hmm... bra valg?",
+            feedbackA: "Hmm... bra valg?"
+        }
+    },
+    {
+        // Dilemma 19: Første smittede med svartedauen(hindre smitte) vs første smittede med covid(hindre smitte) 
+        levelId: 19,
+        dilemmaText: "Et tog er på vei mot Første smittede med covid. Du kan trekke i en spak for å sende det mot Første smittede med svartedauen. Hva gjør du?",
+        trackA: { characters: ['Første smittede med covid'] },
+        trackB: { characters: ['Første smittede med svartedauen'] },
+        feedback: {
+            feedbackB: "Hmm... bra valg?",
+            feedbackA: "Hmm... bra valg?"
         }
     }
 ];
