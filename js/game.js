@@ -14,8 +14,8 @@ const gameData = [
         trackB: { characters: ['Østlending', 'Østlending','Østlending','Østlending','Østlending'] }, 
         
         feedback: {
-            feedbackB: "Jævla psykopat!",
-            feedbackA: "Bra! Østlendingene fortjente det!" 
+            feedbackB: "Bra! Østlendingene fortjente det!",
+            feedbackA: "Jævla psykopat!" 
         }
     },
 
@@ -146,8 +146,8 @@ const gameData = [
         trackDeadImage: 'serverdod.png' 
          }, 
         feedback: {
-            feedbackB: "Du ødela spillet! Game Over på en måte. Paradoks avverget?🤔",
-            feedbackA: "Utviklerne er borte... men hvordan trakk du i spaken hvis spillet aldri ble lagd? 🤔"
+            feedbackB: "Du ødela spillet! Game Over på en måte. Paradoks avverget?",
+            feedbackA: "Utviklerne er borte... men hvordan trakk du i spaken hvis spillet aldri ble lagd?"
         }
     },
     {
@@ -157,8 +157,8 @@ const gameData = [
         trackA: { characters: ['Person','Person','Person','Person','Person','Person'] },
         trackB: { characters: [] },
         feedback: {
-            feedbackB: "De 6 på sporet var en akseptabel kostnad for shareholder value!.",
-            feedbackA: "Dette kommer til å se stygt ut på kvartalsrapporten..."
+            feedbackB: "Dette kommer til å se stygt ut på kvartalsrapporten...",
+            feedbackA: "De 6 på sporet var en akseptabel kostnad for shareholder value!."
         }
     },
     {
